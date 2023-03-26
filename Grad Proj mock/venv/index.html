@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accommodation Finder</title>
+  </head>
+  <body>
+    <h1>Accommodation Finder</h1>
+    <p>Welcome to our website! Use the search form below to find your perfect accommodation.</p>
+    <form method="POST" action="/search">
+      <input type="text" name="location" placeholder="Location">
+      <select name="accommodation_type">
+        <option value="hotel">Hotel</option>
+        <option value="dorm">Dorm</option>
+        <option value="apartment">Apartment</option>
+        <option value="private_room">Private Room</option>
+      </select>
+      <input type="submit" value="Search">
+    </form>
+    <h2>Featured Accommodations</h2>
+    <ul>
+      {% for accommodation in accommodations %}
+      <li>{{ accommodation.name }} - {{ accommodation.location }} - {{ accommodation.accommodation_type }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
