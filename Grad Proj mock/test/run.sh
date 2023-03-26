@@ -1,1 +1,1 @@
-python3 ./employee.py
+python3 ./crud.py
