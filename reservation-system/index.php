@@ -22,14 +22,11 @@ if(isset($_COOKIE["user"]))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <!-- sweet alert -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    
     <!-- aos animation -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- loading bar -->
-    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <link rel="stylesheet" href="css/aos.css" />
+    
     <link rel="stylesheet" href="css/flash.css">
     <title>Reservation System</title>
 </head>
@@ -175,19 +172,19 @@ if(isset($_COOKIE["user"]))
                 <form class="user_signup" id="usersignup" action="" method="POST">
                     <div class="form-floating">
                         <input type="text" class="form-control" name="Username" placeholder=" ">
-                        <label for="Username">Username</label>
+                        <label for="Username">Username *</label>
                     </div>
                     <div class="form-floating">
                         <input type="email" class="form-control" name="Email" placeholder=" ">
-                        <label for="Email">Email</label>
+                        <label for="Email">Email *</label>
                     </div>
                     <div class="form-floating">
                         <input type="password" class="form-control" name="Password" placeholder=" ">
-                        <label for="Password">Password</label>
+                        <label for="Password">Password *</label>
                     </div>
                     <div class="form-floating">
                         <input type="password" class="form-control" name="CPassword" placeholder=" ">
-                        <label for="CPassword">Confirm Password</label>
+                        <label for="CPassword">Confirm Password *</label>
                     </div>
 
                     <button type="submit" name="user_signup_submit" class="auth_btn">Sign up</button>
@@ -203,10 +200,15 @@ if(isset($_COOKIE["user"]))
 
 <script src="js/index.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+<!-- sweet alert -->
+<script src="js/sweetalert.min.js"></script>
+<!-- loading bar -->
+<script src="js/pace.min.js"></script>
 
 <!-- aos animation-->
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="js/aos.js"></script>
 <script>
     AOS.init();
 </script>
