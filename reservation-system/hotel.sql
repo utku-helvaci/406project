@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2023 at 01:16 PM
+-- Generation Time: May 09, 2023 at 06:30 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -45,16 +45,19 @@ CREATE TABLE `contact` (
 CREATE TABLE `login` (
   `id` int(10) UNSIGNED NOT NULL,
   `usname` varchar(30) DEFAULT NULL,
-  `pass` varchar(30) DEFAULT NULL
+  `pass` varchar(30) DEFAULT NULL,
+  `fullname` tinytext DEFAULT '(NULL)',
+  `emailaddress` tinytext DEFAULT '(NULL)',
+  `datetime` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`id`, `usname`, `pass`) VALUES
-(1, 'admin', '1234'),
-(2, 'Jayesh', '12345');
+INSERT INTO `login` (`id`, `usname`, `pass`, `fullname`, `emailaddress`, `datetime`) VALUES
+(5, 'admin', '1234', '', '', '0000-00-00'),
+(6, 'test', '123', '', '', '2023-05-08');
 
 -- --------------------------------------------------------
 
@@ -68,6 +71,13 @@ CREATE TABLE `newsletterlog` (
   `subject` varchar(100) DEFAULT NULL,
   `news` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `newsletterlog`
+--
+
+INSERT INTO `newsletterlog` (`id`, `title`, `subject`, `news`) VALUES
+(1, 'fdsfdsafdsafd', 'hgfdhgfdhgfdhgfd', 'ouoiuoiuoiuhgfd');
 
 -- --------------------------------------------------------
 
@@ -93,6 +103,40 @@ CREATE TABLE `payment` (
   `noofdays` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`id`, `title`, `fname`, `lname`, `troom`, `tbed`, `nroom`, `cin`, `cout`, `ttot`, `fintot`, `mepr`, `meal`, `btot`, `noofdays`) VALUES
+(2, 'Mr.', 'Teset', 'test', 'Royal Room', 'Triple', 1, '2023-05-08', '2023-05-09', 2448.00, 2668.32, 146.88, 'Breakfast', 73.44, 1),
+(4, 'Miss.', 'Chris', 'Christiana', 'Classic Suite', 'Quad', 1, '2023-05-08', '2023-05-09', 1809.00, 2098.44, 217.08, 'Half Board', 72.36, 1),
+(3, 'Miss.', 'Christian', 'Henry', 'Club Royal', 'Quad', 1, '2023-05-08', '2023-05-09', 1929.00, 2237.64, 231.48, 'Half Board', 77.16, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment_list`
+--
+
+CREATE TABLE `payment_list` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `fName` text DEFAULT NULL,
+  `lName` text DEFAULT NULL,
+  `card_id` text DEFAULT NULL,
+  `expire_date` date DEFAULT NULL,
+  `cvv` text DEFAULT NULL,
+  `price` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payment_list`
+--
+
+INSERT INTO `payment_list` (`id`, `fName`, `lName`, `card_id`, `expire_date`, `cvv`, `price`) VALUES
+(1, 'test', 'teste1', '12354564446', '2023-05-31', '446', NULL),
+(2, 'tetddt', 'henry', '23432432432432', '2023-05-09', '432', NULL),
+(3, 'yyyyy', 'rrrrrr', '4564646464646', '2023-05-09', '646', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -101,33 +145,47 @@ CREATE TABLE `payment` (
 
 CREATE TABLE `room` (
   `id` int(10) UNSIGNED NOT NULL,
-  `type` varchar(15) DEFAULT NULL,
-  `bedding` varchar(10) DEFAULT NULL,
-  `place` varchar(10) DEFAULT NULL,
-  `cusid` int(11) DEFAULT NULL
+  `type` varchar(50) DEFAULT NULL,
+  `bedding` varchar(50) DEFAULT NULL,
+  `place` varchar(50) DEFAULT NULL,
+  `cusid` int(11) DEFAULT NULL,
+  `img_url` text DEFAULT NULL,
+  `img_url1` text DEFAULT NULL,
+  `img_url2` text DEFAULT NULL,
+  `comment` text DEFAULT NULL,
+  `type_s` text DEFAULT NULL,
+  `price` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `room`
 --
 
-INSERT INTO `room` (`id`, `type`, `bedding`, `place`, `cusid`) VALUES
-(1, 'Royal Room', 'Single', 'Free', NULL),
-(2, 'Royal Room', 'Double', 'Free', NULL),
-(3, 'Royal Room', 'Triple', 'Free', NULL),
-(4, 'Royal Room', 'Quad', 'Free', NULL),
-(5, 'Club Royal', 'Single', 'Free', NULL),
-(6, 'Club Royal', 'Double', 'Free', NULL),
-(7, 'Club Royal', 'Triple', 'Free', NULL),
-(8, 'Club Royal', 'Quad', 'Free', NULL),
-(9, 'Classic Suite', 'Single', 'Free', NULL),
-(10, 'Classic Suite', 'Double', 'Free', NULL),
-(11, 'Classic Suite', 'Triple', 'Free', NULL),
-(12, 'Classic Suite', 'Quad', 'Free', NULL),
-(13, 'Single Suite', 'Single', 'Free', NULL),
-(14, 'Single Suite', 'Double', 'Free', NULL),
-(15, 'Single Suite', 'Triple', 'Free', NULL),
-(16, 'Single Suite', 'Quad', 'Free', NULL);
+INSERT INTO `room` (`id`, `type`, `bedding`, `place`, `cusid`, `img_url`, `img_url1`, `img_url2`, `comment`, `type_s`, `price`) VALUES
+(1, 'Guest House', 'Single', 'Free', NULL, 'images/g7.jpg', NULL, NULL, NULL, 'guest', NULL),
+(2, 'Guest House', 'Double', 'Free', NULL, 'images/g8.jpg', NULL, NULL, 'guest1', 'guest', NULL),
+(3, 'Guest House', 'Triple', 'Free', NULL, 'images/g9.jpg', NULL, NULL, 'guest2', 'guest', NULL),
+(4, 'Guest House', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'guest', NULL),
+(5, 'Hotels', 'Single', 'Free', NULL, 'images/image1.jpg', NULL, NULL, NULL, 'hotel', NULL),
+(6, 'Hotels', 'Double', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL),
+(7, 'Hotels', 'Triple', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL),
+(8, 'Hotels', 'Quad', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL),
+(9, 'Apartments', 'Single', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL),
+(10, 'Apartments', 'Double', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL),
+(11, 'Apartments', 'Triple', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL),
+(12, 'Apartments', 'Quad', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL),
+(13, 'Dorms', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL),
+(14, 'Dorms', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL),
+(15, 'Dorms', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL),
+(16, 'Dorms', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL),
+(17, 'Available Roommates', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'roommate', NULL),
+(18, 'Available Roommates', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'roommate', NULL),
+(19, 'Available Roommates', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'this is test!', 'roommate', NULL),
+(20, 'Available Roommates', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'this is test', 'roommate', NULL),
+(21, 'Shared houses', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'shared', NULL),
+(22, 'Shared houses', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'You can incorporate this function, so that the user can choose where they want to reserve,\r\nGuest house (like airbnb), Hotels, apartments, dorms, roommates and family house or\r\nhotel or a shared house with a roommate.\r\nThe hotels section can have many different hotels in the area (prices in Turkish lira or\r\nUSD) the same for dorms and others. I will share the different pictures for each and their\r\nlocation.\r\nThe design can be as the one for the website you have provided, it was good.\r\nThe categories can be shown on the homepage or can be in the menu on the homepage.\r\nWhen any category is clicked (for example if the user clicks on apartments) it should take\r\nthem to a page where there is a list of different apartments (if you like you can add a\r\nbonus where the user can filter by the number of rooms or price)', 'shared', NULL),
+(23, 'Shared houses', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'shared', NULL),
+(29, 'Shared houses', 'Quad', 'Free', NULL, 'images/202305071683454366.', NULL, NULL, 'fdsafdsafdsafdsafdsafdsfdsafdsafdsafdsafdsa\r\nThis is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.', 'shared', NULL);
 
 -- --------------------------------------------------------
 
@@ -155,6 +213,13 @@ CREATE TABLE `roombook` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `roombook`
+--
+
+INSERT INTO `roombook` (`id`, `Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`, `stat`, `nodays`) VALUES
+(2, 'Mr.', 'Teset', 'test', 'test@gmail.com', 'Turkish', 'Turkey', '12321321321', 'Royal Room', 'Triple', '1', 'Breakfast', '2023-05-08', '2023-05-09', 'Conform', 1);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -174,6 +239,12 @@ ALTER TABLE `login`
 -- Indexes for table `newsletterlog`
 --
 ALTER TABLE `newsletterlog`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `payment_list`
+--
+ALTER TABLE `payment_list`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -202,25 +273,31 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `newsletterlog`
 --
 ALTER TABLE `newsletterlog`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `payment_list`
+--
+ALTER TABLE `payment_list`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `roombook`
 --
 ALTER TABLE `roombook`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

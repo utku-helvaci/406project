@@ -6,7 +6,7 @@ include('db.php')
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reservation Reservation System</title>
+    <title>Reservation  System</title>
 	<!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
@@ -23,7 +23,7 @@ include('db.php')
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a  href="../index.php"><i class="fa fa-home"></i> Homepage</a>
+                        <a   href="../index.php"><i class="fa fa-home"></i> Homepage</a>
                     </li>
                     
 					</ul>
@@ -83,10 +83,10 @@ include('db.php')
 							   <div class="form-group">
                                             <label>Nationality*</label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="nation"  value="Indian" checked="">Indian
+                                                <input type="radio" name="nation"  value="Turkish" checked="">Turkish
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="nation"  value="Non Indian">Non Indian
+                                                <input type="radio" name="nation"  value="Non Turkish">Non Turkish
                                             </label>
                          
                                 </div>
@@ -129,10 +129,12 @@ include('db.php')
                                             <label>Type Of Room *</label>
                                             <select name="troom"  class="form-control" required>
 												<option value selected ></option>
-                                                <option value="Royal Room">Royal Room</option>
-                                                <option value="Club Royal">Club Royal</option>
-												<option value="Classic Suite">Classic Suite</option>
-												<option value="Single Suite">Single Suite</option>
+                                                <option value="Guest Houses">Guest Houses</option>
+                                                <option value="Hotels">Hotels</option>
+												<option value="Apartments">Apartments</option>
+												<option value="Dorms">Dorms</option>
+                                                <option value="Available Roommates">Available Roommates</option>
+                                                <option value="Shared houses">Shared houses</option>
                                             </select>
                               </div>
 							  <div class="form-group">
@@ -153,12 +155,12 @@ include('db.php')
                                             <select name="nroom" class="form-control" required>
 												<option value selected ></option>
                                                 <option value="1">1</option>
-                                              <!--  <option value="2">2</option>
+                                                <option value="2">2</option>
 												<option value="3">3</option>
 												<option value="4">4</option>
 												<option value="5">5</option>
 												<option value="6">6</option>
-												<option value="7">7</option> -->
+												<option value="7">7</option>
                                             </select>
                               </div>
 							 
@@ -190,6 +192,101 @@ include('db.php')
                         
                     </div>
                 </div>
+
+                <div class="col-md-12 col-sm-12">
+                    <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                           NEW PAYMENT <small></small>
+                        </h1>
+                    </div>
+                </div> 
+                 
+                                 
+                <div class="row">
+
+                    <?php if($_COOKIE['user'] != "admin") {?>
+                    
+                    <div class="col-md-5 col-sm-5">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                ADD NEW PAYMENT
+                            </div>
+                            <div class="panel-body">
+                                <form name="form" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label>First Name *</label>
+                                        <input type="text" required name="first_name" class="first_name col-md-12" id="first_name" />
+                                    </div>
+                                      
+                                    <div class="form-group">
+                                        <label>Last Name *</label>
+                                        <input type="text" required name="last_name" class="last_name col-md-12" id="last_name" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Card Number *</label>
+                                        <input type="text" required name="card_num" class="card_num col-md-12" id="card_num" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Price *</label>
+                                        <input type="text" required name="price" class="price col-md-12" id="price" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Expire Date *</label>
+                                        <input name="cin" required type ="date" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>CVV *</label>
+                                        <input name="cout" required type ="text" class="form-control" />
+                                    </div>
+                                    
+                                    <input type="submit" name="add" value="Add New" class="btn btn-primary"> 
+                                </form>
+                                <?php
+                                include('db.php');
+                                if(isset($_POST['add']))
+                                {
+
+                                    extract($_POST);                                
+
+                                    $fname = $_POST['first_name'] ; 
+                                    $lname = $_POST['last_name'] ;
+                                    $cardnum = $_POST['card_num'] ;
+                                    $exdate = $_POST['cin'] ;
+                                    $cvv = $_POST['cout'] ; 
+                                    $price = $_POST['price'] ; 
+
+                                    
+                                    $check="SELECT * FROM payment_list WHERE fName = '$fname' AND lName = '$lname'  AND card_id = '$cardnum' AND  cvv = '$cvv' AND  price = '$price'  ";
+                                    $rs = mysqli_query($con,$check);
+                                    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+                                    if($data) {
+                                        echo "<script type='text/javascript'> alert('Payment Already in Exists')</script>";
+                                        
+                                    }
+
+                                    else
+                                    {
+                                        $sql ="INSERT INTO `payment_list`( `fName`, `lName`,`card_id`, `expire_date`,`cvv`,`price`) VALUES ('$fname','$lname','$cardnum','$exdate','$cvv',`$price`)" ;
+                                        if(mysqli_query($con,$sql))
+                                        {
+                                            echo '<script>alert("New Payment Added") </script>' ;
+                                        }
+                                        else {
+                                            echo '<script>alert("Sorry ! Check The System") </script>' ;
+                                        }
+                                    }
+                                }
+                                
+                                ?>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <?php } ?>
+                    
+                </div>
+                </div>
 				
 				
                 <div class="col-md-12 col-sm-12">
@@ -214,10 +311,10 @@ include('db.php')
 							
 									$con=mysqli_connect("localhost","root","","hotel");
                                     
-									$check="SELECT * FROM roombook WHERE email = '$_POST[email]'";
+									$check="SELECT * FROM roombook WHERE Email = '$_POST[email]'";
 									$rs = mysqli_query($con,$check);
 									$data = mysqli_fetch_array($rs, MYSQLI_NUM);
-									if($data[0] > 1) {
+									if($date) {
 										echo "<script type='text/javascript'> alert('User Already in Exists')</script>";
 										
 									}

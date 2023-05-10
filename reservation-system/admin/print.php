@@ -196,22 +196,30 @@ tr:hover .cut { opacity: 1; }
 	}
 	
 									$type_of_room = 0;       
-									if($troom=="Royal Room")
+									if($troom=="Guest Houses")
 									{
 										$type_of_room = 320;
 									
 									}
-									else if($troom=="Club Royal")
+									else if($troom=="Hotels")
 									{
 										$type_of_room = 220;
 									}
-									else if($troom=="Classic Suite")
+									else if($troom=="Apartments")
 									{
 										$type_of_room = 180;
 									}
-									else if($troom=="Single Suite")
+									else if($troom=="Dorms")
 									{
 										$type_of_room = 150;
+									}
+									else if($troom=="Available Roommates")
+									{
+										$type_of_room = 120;
+									}
+									else if($troom=="Shared houses")
+									{
+										$type_of_room = 90;
 									}
 									
 									if($bed=="Single")
@@ -255,9 +263,9 @@ tr:hover .cut { opacity: 1; }
 		<header>
 			<h1>Invoice</h1>
 			<address >
-				<p>Reservation System,</p>
-				<p>43, Mahabal Rd, Jai Nagar,<br>Ramdas Colony, Jalgaon,<br>Maharashtra 425002 India.</p>
-				<p>+91 8275440044</p>
+				<p>RESERVATION SYSTEM</p>
+				<p>43, Elmo Gisa, From in Turkey.</p>
+				<p>+00 000000000</p>
 			</address>
 			<span><img alt="" src="assets/img/sun.png"></span>
 		</header>
@@ -330,9 +338,9 @@ tr:hover .cut { opacity: 1; }
 		<aside>
 			<h1><span >Contact Us</span></h1>
 			<div >
-				<p align="center">Email :- admin@hotelroyalpalace.in || Web :- hotelroyalpalace.orgfree.com</p>
+				<p align="center">Email : admin@emailaddress.in || Web : emailaddress.orgfree.com</p>
 				<hr size="20px">
-				<p align="center">Phone :- +91 8275440044</p>
+				<p align="center">Phone : +00 0000000000</p>
 			</div>
 		</aside>
 	</body>

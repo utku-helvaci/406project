@@ -1,61 +1,55 @@
 <?php  
 session_start();  
-if(isset($_COOKIE["user"]))  
- {  
- 	if($_COOKIE["user"] == "admin"){ 		
-      	header("location: admin/home.php");
-     }
-     else{
-        header("location: home.php");
-     }
- }  
+// if(isset($_COOKIE["user"]))  
+//  {  
+//  	if($_COOKIE["user"] == "admin"){ 		
+//       	header("location: admin/home.php");
+//      }
+//      else{
+//         header("location: home.php");
+//      }
+//  }  
 ?> 
 
 <?php
-		if(!isset($_GET["rid"]))
-		{
-				
-			 header("location:home.php");
-		}
-		else {
-				$curdate=date("Y/m/d");
-				include ('db.php');
-				$id = $_GET['rid'];
-				
-				
-				$sql ="Select * from roombook where id = '$id'";
-				$re = mysqli_query($con,$sql);
-				while($row=mysqli_fetch_array($re))
-				{
-					$title = $row['Title'];
-					$fname = $row['FName'];
-					$lname = $row['LName'];
-					$email = $row['Email'];
-					$nat = $row['National'];
-					$country = $row['Country'];
-					$Phone = $row['Phone'];
-					$troom = $row['TRoom'];
-					$nroom = $row['NRoom'];
-					$bed = $row['Bed'];
-					$non = $row['NRoom'];
-					$meal = $row['Meal'];
-					$cin = $row['cin'];
-					$cout = $row['cout'];
-					$sta = $row['stat'];
-					$days = $row['nodays'];
-					
-				
-				
-				}
-					
-					
-				
+	if(!isset($_GET["rid"]))
+	{
+			
+		 header("location:home.php");
+	}
+	else 
+	{
+		$curdate=date("Y/m/d");
+		include ('db.php');
+		$id = $_GET['rid'];
+		$rid = $id ;
+		setcookie("rid", $id) ;
 		
+		
+		$sql ="Select * from roombook where id = '$id'";
+		$re = mysqli_query($con,$sql);
+		while($row=mysqli_fetch_array($re))
+		{
+			$title = $row['Title'];
+			$fname = $row['FName'];
+			$lname = $row['LName'];
+			$email = $row['Email'];
+			$nat = $row['National'];
+			$country = $row['Country'];
+			$Phone = $row['Phone'];
+			$troom = $row['TRoom'];
+			$nroom = $row['NRoom'];
+			$bed = $row['Bed'];
+			$non = $row['NRoom'];
+			$meal = $row['Meal'];
+			$cin = $row['cin'];
+			$cout = $row['cout'];
+			$sta = $row['stat'];
+			$days = $row['nodays'];				
+		}		
 	}
 		
-		
-		
-			?> 
+?> 
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -86,7 +80,7 @@ if(isset($_COOKIE["user"]))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home.php"> <?php echo $_SESSION["user"]; ?> </a>
+                <a class="navbar-brand" href="home.php"> <?php echo $_COOKIE["user"]; ?> </a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -100,7 +94,7 @@ if(isset($_COOKIE["user"]))
                         <li><a href="settings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -130,7 +124,7 @@ if(isset($_COOKIE["user"]))
                     </li>
                     
                     <li>
-                        <a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                     
 
@@ -249,14 +243,12 @@ if(isset($_COOKIE["user"]))
 							
                         </div>
                         <div class="panel-footer">
-                            <form method="post">
+                            <form method="post" >
 										<div class="form-group">
 														<label>Select the Conformation</label>
 														<select name="conf"class="form-control">
 															<option value selected>	</option>
 															<option value="Conform">Conform</option>
-															
-															
 														</select>
 										 </div>
 							<input type="submit" name="co" value="Conform" class="btn btn-success">
@@ -269,32 +261,42 @@ if(isset($_COOKIE["user"]))
 					<?php
 						$rsql ="select * from room";
 						$rre= mysqli_query($con,$rsql);
-						$r =0 ;
-						$sc =0;
-						$gh = 0;
-						$sr = 0;
-						$dr = 0;
+						$r =0 ;         // guest house
+						$sc =0;			// hotels
+						$gh = 0;		// apartments	
+						$sr = 0;		// dorms
+						$dr = 0;		// available roommates
+						$er = 0 ;		// shared house
+						$hr = 0 ;
 						while($rrow=mysqli_fetch_array($rre))
 						{
 							$r = $r + 1;
 							$s = $rrow['type'];
 							$p = $rrow['place'];
-							if($s=="Royal Room" )
+							if($s=="Guest House" )
 							{
 								$sc = $sc+ 1;
 							}
 							
-							if($s=="Club Royal")
+							if($s=="Hotels")
 							{
 								$gh = $gh + 1;
 							}
-							if($s=="Classic Suite" )
+							if($s=="Apartments" )
 							{
 								$sr = $sr + 1;
 							}
-							if($s=="Single Suite" )
+							if($s=="Dorms" )
 							{
 								$dr = $dr + 1;
+							}
+							if($s=="Available Roommates" )
+							{
+								$er = $er + 1;
+							}
+							if($s=="Shared Houses" )
+							{
+								$hr = $hr + 1;
 							}
 							
 						
@@ -309,27 +311,37 @@ if(isset($_COOKIE["user"]))
 						$cgh = 0;
 						$csr = 0;
 						$cdr = 0;
+						$cer = 0 ;
+						$chr = 0 ;
 						while($crow=mysqli_fetch_array($cre))
 						{
 							$cr = $cr + 1;
 							$cs = $crow['troom'];
 							
-							if($cs=="Royal Room"  )
+							if($cs=="Guest House"  )
 							{
 								$csc = $csc + 1;
 							}
 							
-							if($cs=="Club Royal" )
+							if($cs=="Hotels" )
 							{
 								$cgh = $cgh + 1;
 							}
-							if($cs=="Classic Suite" )
+							if($cs=="Apartments" )
 							{
 								$csr = $csr + 1;
 							}
-							if($cs=="Single Suite" )
+							if($cs=="Dorms" )
 							{
 								$cdr = $cdr + 1;
+							}
+							if($cs=="Available Roommates" )
+							{
+								$cer = $cer + 1;
+							}
+							if($cs=="Shared Houses" )
+							{
+								$chr = $chr + 1;
 							}
 							
 						
@@ -345,7 +357,7 @@ if(isset($_COOKIE["user"]))
 						<table width="200px">
 							
 							<tr>
-								<td><b>Royal Room </b></td>
+								<td><b>Guest Houses </b></td>
 								<td><button type="button" class="btn btn-primary btn-circle"><?php  
 									$f1 =$sc - $csc;
 									if($f1 <=0 )
@@ -360,7 +372,7 @@ if(isset($_COOKIE["user"]))
 								?> </button></td> 
 							</tr>
 							<tr>
-								<td><b>Classic Suite</b>	 </td>
+								<td><b>Hotels</b>	 </td>
 								<td><button type="button" class="btn btn-primary btn-circle"><?php 
 								$f2 =  $gh -$cgh;
 								if($f2 <=0 )
@@ -374,7 +386,7 @@ if(isset($_COOKIE["user"]))
 								?> </button></td> 
 							</tr>
 							<tr>
-								<td><b>Single Suite</b></td>
+								<td><b>Apartments</b></td>
 								<td><button type="button" class="btn btn-primary btn-circle"><?php
 								$f3 =$sr - $csr;
 								if($f3 <=0 )
@@ -388,7 +400,7 @@ if(isset($_COOKIE["user"]))
 								?> </button></td> 
 							</tr>
 							<tr>
-								<td><b>Club Royal</b>	 </td>
+								<td><b>Dorms</b>	 </td>
 								<td><button type="button" class="btn btn-primary btn-circle"><?php 
 								
 								$f4 =$dr - $cdr; 
@@ -402,16 +414,44 @@ if(isset($_COOKIE["user"]))
 								?> </button></td> 
 							</tr>
 							<tr>
-								<td><b>Total Rooms	</b> </td>
-								<td> <button type="button" class="btn btn-danger btn-circle"><?php 
+								<td><b>Available Roommates</b>	 </td>
+								<td><button type="button" class="btn btn-primary btn-circle"><?php 
 								
-								$f5 =$r-$cr; 
+								$f4 =$dr - $cdr; 
 								if($f5 <=0 )
 									{	$f5 = "NO";
 										echo $f5;
 									}
 									else{
 											echo $f5;
+									}
+								?> </button></td> 
+							</tr>
+							<tr>
+								<td><b>Shared houses</b>	 </td>
+								<td><button type="button" class="btn btn-primary btn-circle"><?php 
+								
+								$f4 =$dr - $cdr; 
+								if($f6 <=0 )
+									{	$f6 = "NO";
+										echo $f6;
+									}
+									else{
+											echo $f6;
+									}
+								?> </button></td> 
+							</tr>
+							<tr>
+								<td><b>Total Rooms	</b> </td>
+								<td> <button type="button" class="btn btn-danger btn-circle"><?php 
+								
+								$f5 =$r-$cr; 
+								if($f7 <=0 )
+									{	$f7 = "NO";
+										echo $f7;
+									}
+									else{
+											echo $f7;
 									}
 								 ?> </button></td> 
 							</tr>
@@ -461,128 +501,143 @@ if(isset($_COOKIE["user"]))
 </html>
 
 <?php
-						if(isset($_POST['co']))
-						{	
-							$st = $_POST['conf'];
-							
-							 
-							
-							if($st=="Conform")
-							{
-									$urb = "UPDATE `roombook` SET `stat`='$st' WHERE id = '$id'";
-									
-								if($f1=="NO" )
-								{
-									echo "<script type='text/javascript'> alert('Sorry! Not Available Royal Room ')</script>";
-								}
-								else if($f2 =="NO")
-									{
-										echo "<script type='text/javascript'> alert('Sorry! Not Available Classic Suite')</script>";
-										
-									}
-									else if ($f3 == "NO")
-									{
-										echo "<script type='text/javascript'> alert('Sorry! Not Available Single Suite')</script>";
-									}
-										else if($f4=="NO")
-										{
-										echo "<script type='text/javascript'> alert('Sorry! Not Available Club Royal')</script>";
-										}
-										
-										else if( mysqli_query($con,$urb))
-											{	
-												//echo "<script type='text/javascript'> alert('Guest Room booking is conform')</script>";
-												//echo "<script type='text/javascript'> window.location='home.php'</script>";
-												 $type_of_room = 0;       
-														if($troom=="Royal Room")
-														{
-															$type_of_room = 2448;
-														
-														}
-														else if($troom=="Club Royal")
-														{
-															$type_of_room = 1929;
-														}
-														else if($troom=="Classic Suite")
-														{
-															$type_of_room = 1809;
-														}
-														else if($troom=="Single Suite")
-														{
-															$type_of_room = 1589;
-														}
-														
-														
-														
-														
-														if($bed=="Single")
-														{
-															$type_of_bed = $type_of_room * 1/100;
-														}
-														else if($bed=="Double")
-														{
-															$type_of_bed = $type_of_room * 2/100;
-														}
-														else if($bed=="Triple")
-														{
-															$type_of_bed = $type_of_room * 3/100;
-														}
-														else if($bed=="Quad")
-														{
-															$type_of_bed = $type_of_room * 4/100;
-														}
-														else if($bed=="None")
-														{
-															$type_of_bed = $type_of_room * 0/100;
-														}
-														
-														
-														if($meal=="Room only No meal")
-														{
-															$type_of_meal=$type_of_bed * 0;
-														}
-														else if($meal=="Breakfast")
-														{
-															$type_of_meal=$type_of_bed * 2;
-														}else if($meal=="Half Board")
-														{
-															$type_of_meal=$type_of_bed * 3;
-														
-														}else if($meal=="Full Board")
-														{
-															$type_of_meal=$type_of_bed * 4;
-														}
-														
-														
-														$ttot = $type_of_room * $days * $nroom;
-														$mepr = $type_of_meal * $days;
-														$btot = $type_of_bed *$days;
-														
-														$fintot = $ttot + $mepr + $btot ;
-															
-															//echo "<script type='text/javascript'> alert('$count_date')</script>";
-														$psql = "INSERT INTO `payment`(`id`, `title`, `fname`, `lname`, `troom`, `tbed`, `nroom`, `cin`, `cout`, `ttot`,`meal`, `mepr`, `btot`,`fintot`,`noofdays`) VALUES ('$id','$title','$fname','$lname','$troom','$bed','$nroom','$cin','$cout','$ttot','$meal','$mepr','$btot','$fintot','$days')";
-														
-														if(mysqli_query($con,$psql))
-														{	$notfree="NotFree";
-															$rpsql = "UPDATE `room` SET `place`='$notfree',`cusid`='$id' where bedding ='$bed' and type='$troom' ";
-															if(mysqli_query($con,$rpsql))
-															{
-															echo "<script type='text/javascript'> alert('Booking Conform...!')</script>";
-															echo "<script type='text/javascript'> window.location='roombook.php'</script>";
-															}
-															
-															
-														}
-												
-											}
-									
-                                        
-							}	
-					
-						}
-					
-									
-									
-							
-						?>
+if(isset($_POST['co']))
+{	
+	$st = $_POST['conf'];	 
+	
+	if($st=="Conform")
+	{
+		// $rid = $_COOKIE['rid'] ;
+		$urb = "UPDATE `roombook` SET `stat`='$st' WHERE id = '$rid'";
+			
+		if($f1=="NO" )
+		{
+			echo "<script type='text/javascript'> alert('Sorry! Not Available Guest Houses ')</script>";
+		}
+		else if($f2 =="NO")
+		{
+			echo "<script type='text/javascript'> alert('Sorry! Not Available Hotels')</script>";
+			
+		}
+		else if ($f3 == "NO")
+		{
+			echo "<script type='text/javascript'> alert('Sorry! Not Available Apartments')</script>";
+		}
+		else if($f4=="NO")
+		{
+			echo "<script type='text/javascript'> alert('Sorry! Not Available Dorms')</script>";
+		}
+		else if($f5=="NO")
+		{
+			echo "<script type='text/javascript'> alert('Sorry! Not Available Roommates')</script>";
+		}
+		else if($f6=="NO")
+		{
+			echo "<script type='text/javascript'> alert('Sorry! Not Available Shared Houses')</script>";
+		}
+		
+		else if( mysqli_query($con,$urb))
+		{	
+			//echo "<script type='text/javascript'> alert('Guest Room booking is conform')</script>";
+			//echo "<script type='text/javascript'> window.location='home.php'</script>";
+			$type_of_room = 0;       
+			if($troom=="Guest Houses")
+			{
+				$type_of_room = 2448;
+			
+			}
+			else if($troom=="Hotels")
+			{
+				$type_of_room = 1929;
+			}
+			else if($troom=="Apartments")
+			{
+				$type_of_room = 1809;
+			}
+			else if($troom=="Dorms")
+			{
+				$type_of_room = 1589;
+			}
+			else if($troom=="Available Roommates")
+			{
+				$type_of_room = 1369;
+			}
+			else if($troom=="Shared houses")
+			{
+				$type_of_room = 1149;
+			}
+			
+			
+			
+			
+			if($bed=="Single")
+			{
+				$type_of_bed = $type_of_room * 1/100;
+			}
+			else if($bed=="Double")
+			{
+				$type_of_bed = $type_of_room * 2/100;
+			}
+			else if($bed=="Triple")
+			{
+				$type_of_bed = $type_of_room * 3/100;
+			}
+			else if($bed=="Quad")
+			{
+				$type_of_bed = $type_of_room * 4/100;
+			}
+			else if($bed=="None")
+			{
+				$type_of_bed = $type_of_room * 0/100;
+			}
+			
+			
+			if($meal=="Room only No meal")
+			{
+				$type_of_meal=$type_of_bed * 0;
+			}
+			else if($meal=="Breakfast")
+			{
+				$type_of_meal=$type_of_bed * 2;
+			}else if($meal=="Half Board")
+			{
+				$type_of_meal=$type_of_bed * 3;
+			
+			}else if($meal=="Full Board")
+			{
+				$type_of_meal=$type_of_bed * 4;
+			}
+			
+			
+			$ttot = $type_of_room * $days * $nroom;
+			$mepr = $type_of_meal * $days;
+			$btot = $type_of_bed *$days;
+			
+			$fintot = $ttot + $mepr + $btot ;
+				
+				//echo "<script type='text/javascript'> alert('$count_date')</script>";
+			$psql = "INSERT INTO `payment`(`id`, `title`, `fname`, `lname`, `troom`, `tbed`, `nroom`, `cin`, `cout`, `ttot`,`meal`, `mepr`, `btot`,`fintot`,`noofdays`) VALUES ('$id','$title','$fname','$lname','$troom','$bed','$nroom','$cin','$cout','$ttot','$meal','$mepr','$btot','$fintot','$days')";
+			
+			if(mysqli_query($con,$psql))
+			{	$notfree="NotFree";
+				$rpsql = "UPDATE `room` SET `place`='$notfree',`cusid`='$id' where bedding ='$bed' and type='$troom' ";
+				if(mysqli_query($con,$rpsql))
+				{
+					echo "<script type='text/javascript'> alert('Booking Conform...!')</script>";
+					echo "<script type='text/javascript'> window.location='roombook.php'</script>";
+				}
+				
+				
+			}
+			
+		}
+			
+                
+	}	
+
+}
+
+			
+			
+	
+?>

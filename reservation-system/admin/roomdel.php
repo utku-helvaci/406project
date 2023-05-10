@@ -1,14 +1,14 @@
 <?php  
 session_start();  
-if(isset($_COOKIE["user"]))  
- {  
- 	if($_COOKIE["user"] == "admin"){ 		
-      	header("location: admin/home.php");
-     }
-     else{
-        header("location: home.php");
-     }
- }  
+// if(isset($_COOKIE["user"]))  
+//  {  
+//  	if($_COOKIE["user"] == "admin"){ 		
+//       	header("location: admin/home.php");
+//      }
+//      else{
+//         header("location: home.php");
+//      }
+//  }  
 ob_start();
 ?> 
 
@@ -82,6 +82,11 @@ $rre=mysqli_query($con,$rsql);
                     <li>
                         <a  class="active-menu" href="roomdel.php"><i class="fa fa-pencil-square-o"></i> Delete Room</a>
                     </li>
+                    <!-- <li>
+                        <a  href="addpayment.php"><i class="fa fa-plus-circle"></i>Add Payment</a>
+                    </li> -->
+					
+                </ul>   
 					
 
                     
@@ -257,7 +262,7 @@ $rre=mysqli_query($con,$rsql);
     <!-- Metis Menu Js -->
     <script src="assets/js/jquery.metisMenu.js"></script>
       <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
+    <!-- <script src="assets/js/custom-scripts.js"></script> -->
     
    
 </body>

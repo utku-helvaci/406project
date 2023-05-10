@@ -1,5 +1,17 @@
 <?php
 include('db.php');
+// if(isset($_COOKIE["user"]))  
+//  {  
+//       if($_COOKIE["user"] == "admin"){      
+//         header("location: admin/home.php");
+//      }
+//      else{
+//         header("location: home.php");
+//      }
+//  }  
+//  else{
+//  	header("location: index.php");
+//  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,16 +50,16 @@ include('db.php');
 			</div>
 			<div class="contact-bnr-w3-agile">
 				<ul>
-					<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:admin@emailaddress.in">admin@emailaddress</a></li>
-					<li><i class="fa fa-phone" aria-hidden="true"></i>+00 0000000000</li>	
+					<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:ezpz9675@gmail.com">ezpz9675@gmail.com</a></li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i>+90 5338358927</li>	
 					<li class="s-bar">
 						<div class="search">
 							<input class="search_box" type="checkbox" id="search_box">
 							<label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
 							<div class="search_form">
-								<form action="#" method="post">
-									<input type="search" name="Search" placeholder=" " required=" " />
-									<input type="submit" value="Search">
+								<form action="#" method="post" style="display:inline-flex;">
+									<input type="search" class="search_txt" id="search_txt" name="Search" placeholder=" " required=" " />
+									<input type="submit" class="search_btn" id="search_btn" value="Search">
 								</form>
 							</div>
 						</div>
@@ -74,9 +86,10 @@ include('db.php');
 						<ul class="nav navbar-nav menu__list">
 							<li class="menu__item menu__item--current"><a href="" class="menu__link">Home</a></li>
 							<li class="menu__item"><a href="#about" class="menu__link scroll">About</a></li>
-							<li class="menu__item"><a href="#gallery" class="menu__link scroll">Gallery</a></li>
+							<li class="menu__item"><a href="#gallery" class="menu__link scroll">Categories</a></li>
 							<li class="menu__item"><a href="#rooms" class="menu__link scroll">Rooms</a></li>
 							<li class="menu__item"><a href="#contact" class="menu__link scroll">Contact Us</a></li>
+							<li class="menu__item"><a href="logout.php" class="menu__link scroll">Logout</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -291,41 +304,56 @@ include('db.php');
 
 <!-- Gallery -->
 <section class="portfolio-w3ls" id="gallery">
-		 <h3 class="title-w3-agileits title-black-wthree">Our Gallery</h3>
+		 <h3 class="title-w3-agileits title-black-wthree">Our Categories</h3>
 				
-				<div class="col-md-3 gallery-grid gallery1">
-					<a href="images/g3.jpg" class="swipebox"><img src="images/g3.jpg" class="img-responsive" alt="/">
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="categories.php?cate=guest" class=""><img src="images/g1.jpg" class="img-responsive" alt="/">
 						<div class="textbox">
-						<h4>Reser<span>vation</h4>
+						<h4>Guest  Houses</h4>
 							<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 						</div>
 				</a>
 				</div>
-				<div class="col-md-3 gallery-grid gallery1">
-					<a href="images/g4.jpg" class="swipebox"><img src="images/g4.jpg" class="img-responsive" alt="/">
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="categories.php?cate=hotel" class=""><img src="images/g2.jpg" class="img-responsive" alt="/">
 						<div class="textbox">
-						<h4>Reser<span>vation</h4>
+						<h4>Hotels</h4>
 							<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 						</div>
 				</a>
 				</div>
-				<div class="col-md-3 gallery-grid gallery1">
-					<a href="images/g5.jpg" class="swipebox"><img src="images/g5.jpg" class="img-responsive" alt="/">
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="categories.php?cate=apart" class=""><img src="images/g3.jpg" class="img-responsive" alt="/">
 						<div class="textbox">
-						<h4>Reser<span>vation</h4>
+						<h4>Apartments</h4>
 							<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 						</div>
 					</a>
 				</div>
-				<div class="col-md-3 gallery-grid gallery1">
-					<a href="images/g10.jpg" class="swipebox"><img src="images/g10.jpg" class="img-responsive" alt="/">
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="categories.php?cate=dorms" class=""><img src="images/g4.jpg" class="img-responsive" alt="/">
 						<div class="textbox">
-						<h4>Reser<span>vation</h4>
+						<h4>Dorms</h4>
 							<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 						</div>
 				</a>
 				</div>
-				
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="categories.php?cate=roommate" class=""><img src="images/g5.jpg" class="img-responsive" alt="/">
+						<div class="textbox">
+						<h4>Available Roommates</h4>
+							<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
+						</div>
+				</a>
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="categories.php?cate=shared" class=""><img src="images/g6.jpg" class="img-responsive" alt="/">
+						<div class="textbox">
+						<h4>Shared Houses</h4>
+							<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
+						</div>
+				</a>
+				</div>
 				<div class="clearfix"> </div>
 </section>
 <!-- //gallery -->
@@ -603,8 +631,8 @@ include('db.php');
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 contact-w3-agile1" data-aos="flip-right">
 			<h4>Connect With Us</h4>
-			<p class="contact-agile1"><strong>Phone :</strong>+00 0000000000</p>
-			<p class="contact-agile1"><strong>Email :</strong> <a href="mailto:admin@emailadress.com">admin@emailaddress.in</a></p>
+			<p class="contact-agile1"><strong>Phone :</strong>+90 5338358927</p>
+			<p class="contact-agile1"><strong>Email :</strong> <a href="mailto:ezpz9675@gmail.com">ezpz9675@gmail.com</a></p>
 			<p class="contact-agile1"><strong>Address :</strong> Turky.</p>
 			<div class="social-bnr-agileits footer-icons-agileinfo">
 				<ul class="social-icons3">
@@ -613,9 +641,34 @@ include('db.php');
 								<li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li> 
 							</ul>
 			</div>
-			<div style="width: 100%">
-			<iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Hotel%20Royal%20Palace,%20Jalgaon%20+(Hotel%20Royal%20Palace)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-				<a href="https://www.gps.ie/sport-gps/">swimming watch</a></iframe></div>
+			<div class="col-md-12" style="width: 100%; margin-top: 20px ;">
+				<form  enctype="text/plain"  method="post" name="sentMessage" id="contactForm" >
+					<div class="control-group form-group">
+                        
+                        <label class="contact-p1"><p>Name:</p></label>
+                        <input type="text" placeholder="Enter your Name" class="form-control" name="name" id="name" required >
+                        <p class="help-block"></p>
+               
+                  </div>	
+                  <div class="control-group form-group">
+                    
+                        <label class="contact-p1"><p>Email:</p></label>
+                        <input type="email"  placeholder="Enter a valid email address" class="form-control" name="email" id="email" required >
+						<p class="help-block"></p>
+					
+                  </div>
+                  <div class="control-group form-group">
+                        
+                        <label class="contact-p1"><p>How can we help?</p></label>
+                        <textarea type="tel"  class="form-control" name="phone" id="phone" required ></textarea> 
+						<p class="help-block"></p>
+						
+                  </div>
+                    
+                  <input type="button" onclick="sendEmail()"  name="sub" value="Send Now" class="btn btn-primary">	
+                    <!-- <a type="button" name="sub" class="btn btn-primary" id="cus_email_send">Send Now</a> -->
+				</form>
+			</div>
 		</div>
 		<div class="clearfix"></div>
 	</div>
@@ -629,6 +682,21 @@ include('db.php');
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- contact form -->
 <script src="js/jqBootstrapValidation.js"></script>
+
+<script type="text/javascript" src="js/smtp.js"></script>
+<script type="text/javascript">
+    function sendEmail() {
+        Email.send({
+            SecureToken: "security token of your smtp",
+            To: "ezpz9675@gmail.com",
+            From: document.getElementById('email').value,
+            Subject: "From" + document.getElementById('name').value ,
+            Body: document.getElementById('phone').value
+        }).then( 
+            message => alert("mail sent successfully")
+        );
+    }
+</script>
 
 <!-- /contact form -->	
 <!-- Calendar -->
@@ -652,12 +720,12 @@ include('db.php');
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
 <script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-		});
-	});
+	// jQuery(document).ready(function($) {
+	// 	$(".scroll").click(function(event){		
+	// 		event.preventDefault();
+	// 		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+	// 	});
+	// });
 </script>
 <!-- start-smoth-scrolling -->
 <!-- flexSlider -->

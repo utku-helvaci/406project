@@ -194,9 +194,9 @@ tr:hover .cut { opacity: 1; }
 		<header>
 			<h1>Information of Guest</h1>
 			<address >
-				<p>ROYAL PALACE HOTEL,</p>
-				<p>43, Mahabal Rd, Jai Nagar,<br>Ramdas Colony, Jalgaon,<br>Maharashtra 425002 India.</p>
-				<p>+91 8275440044</p>
+				<p>RESERVATION SYSTEM</p>
+				<p>43, Elmo Gisa, From in Turkey.</p>
+				<p>+00 000000000</p>
 			</address>
 			<span><img alt="" src="assets/img/sun.png"></span>
 		</header>
@@ -205,7 +205,7 @@ tr:hover .cut { opacity: 1; }
 			<address >
 				
 				<p><br></p>
-				<p>Coustomer Name  : -  <?php echo $title.$Fname." ".$lname;?><br></p>
+				<p>Coustomer Name  :  <?php echo $title.$Fname." ".$lname;?><br></p>
 			</address>
 			<table class="meta">
 				<tr>
@@ -224,13 +224,13 @@ tr:hover .cut { opacity: 1; }
 			</table>
 			<table >
 					<tr> 
-						<td>Customer phone : -  <?php echo $phone; ?> </td>
+						<td>Customer phone :  <?php echo $phone; ?> </td>
 						
-						<td>Customer email : -  <?php echo $email; ?> </td>
+						<td>Customer email :  <?php echo $email; ?> </td>
 					</tr>
 					<tr> 
-						<td>Customer Country : -  <?php echo $country; ?> </td>
-						<td>Customer National : -  <?php echo $National; ?> </td>
+						<td>Customer Country :  <?php echo $country; ?> </td>
+						<td>Customer National :  <?php echo $National; ?> </td>
 					</tr>
 				</table>
 				<br>
@@ -268,7 +268,7 @@ tr:hover .cut { opacity: 1; }
 		<aside>
 			<h1><span >Contact us</span></h1>
 			<div >
-				<p align="center">Email :-  admin@hotelroyalpalace.in || Web :- www.hotelroyalpalace.orgfree.com || Phone :- +91 8275440044 </p>
+				<p align="center">Email :  admin@emailaddress.in || Web : www.reservationsystem.orgfree.com || Phone : +00 0000000000 </p>
 			</div>
 		</aside>
 	</body>

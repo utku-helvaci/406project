@@ -1431,6 +1431,7 @@ h3.w3l-agile:before,h2.w3l-agile:before  {
 }
 .gallery1 {
 position:relative;
+padding: 5px ;
 }
 .gallery1 .textbox {
     width: 100%;

@@ -1,14 +1,14 @@
 <?php  
 session_start();  
-if(isset($_COOKIE["user"]))  
- {  
-    if($_COOKIE["user"] == "admin"){        
-        header("location: admin/home.php");
-     }
-     else{
-        header("location: home.php");
-     }
- }  
+// if(isset($_COOKIE["user"]))  
+//  {  
+//     if($_COOKIE["user"] == "admin"){        
+//         header("location: admin/home.php");
+//      }
+//      else{
+//         header("location: home.php");
+//      }
+//  }  
 
 ob_start();
 ?> 
@@ -53,7 +53,7 @@ ob_start();
                         <li><a href="settings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
 					
@@ -125,29 +125,58 @@ ob_start();
 											$ps = $row['pass'];
 											if($id % 2 ==0 )
 											{
-												echo"<tr class='gradeC'>
-													<td>".$id."</td>
-													<td>".$us."</td>
-													<td>".$ps."</td>
-													
-													<td><button class='btn btn-primary btn' data-toggle='modal' data-target='#myModal'>
-															 Update 
-													</button></td>
-													<td><a href=usersettingdel.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Delete</button></td>
-												</tr>";
+                                                if($us == "admin"){
+                                                    echo"<tr class='gradeC'>
+                                                    <td>".$id."</td>
+                                                    <td>".$us."</td>
+                                                    <td>".$ps."</td>
+                                                    
+                                                    <td><button class='btn btn-primary btn' data-toggle='modal' data-target='#myModal'>
+                                                             Update 
+                                                    </button></td>
+                                                    <td></td>
+                                                    </tr>";
+                                                }
+                                                else{
+                                                    echo"<tr class='gradeC'>
+                                                    <td>".$id."</td>
+                                                    <td>".$us."</td>
+                                                    <td>".$ps."</td>
+                                                    
+                                                    <td><button class='btn btn-primary btn' data-toggle='modal' data-target='#myModal'>
+                                                             Update 
+                                                    </button></td>
+                                                    <td><a href=usersettingdel.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Delete</button></td>
+                                                    </tr>";
+                                                }
+												
 											}
 											else
 											{
-												echo"<tr class='gradeU'>
-													<td>".$id."</td>
-													<td>".$us."</td>
-													<td>".$ps."</td>
-													
-													<td><button class='btn btn-primary btn' data-toggle='modal' data-target='#myModal'>
-                              Update 
-                            </button></td>
-													<td><a href=usersettingdel.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Delete</button></td>
-												</tr>";
+												if($us == "admin"){
+                                                    echo"<tr class='gradeU'>
+                                                    <td>".$id."</td>
+                                                    <td>".$us."</td>
+                                                    <td>".$ps."</td>
+                                                    
+                                                    <td><button class='btn btn-primary btn' data-toggle='modal' data-target='#myModal'>
+                                                             Update 
+                                                    </button></td>
+                                                    <td></td>
+                                                    </tr>";
+                                                }
+                                                else{
+                                                    echo"<tr class='gradeU'>
+                                                    <td>".$id."</td>
+                                                    <td>".$us."</td>
+                                                    <td>".$ps."</td>
+                                                    
+                                                    <td><button class='btn btn-primary btn' data-toggle='modal' data-target='#myModal'>
+                                                             Update 
+                                                    </button></td>
+                                                    <td><a href=usersettingdel.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Delete</button></td>
+                                                    </tr>";
+                                                }
 											
 											}
 										
@@ -173,25 +202,37 @@ ob_start();
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             <h4 class="modal-title" id="myModalLabel">Add the User name and Password</h4>
                                         </div>
-										<form method="post">
-                                        <div class="modal-body">
-                                            <div class="form-group">
-                                            <label>Add new User name</label>
-                                            <input name="newus"  class="form-control" placeholder="Enter User name">
-											</div>
-										</div>
-										<div class="modal-body">
-                                            <div class="form-group">
-                                            <label>New Password</label>
-                                            <input name="newps"  class="form-control" placeholder="Enter Password">
-											</div>
-                                        </div>
-										
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											
-                                           <input type="submit" name="in" value="Add" class="btn btn-primary">
-										  </form>
+										    <form method="post">
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                    <label>Full Name</label>
+                                                    <input name="newfn"  class="form-control" placeholder="Enter Full Name">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                    <label>Email Address</label>
+                                                    <input name="newea"  class="form-control" placeholder="Enter Email">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                    <label>User Name *</label>
+                                                    <input name="newus"  class="form-control" placeholder="Enter User name">
+        											</div>
+        										</div>
+        										<div class="modal-body">
+                                                    <div class="form-group">
+                                                    <label>New Password *</label>
+                                                    <input name="newps"  class="form-control" placeholder="Enter Password">
+        											</div>
+                                                </div>
+        										
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        											
+                                                   <input type="submit" name="in" value="Add" class="btn btn-primary">
+										   </form>
 										   
                                         </div>
                                     </div>
@@ -201,17 +242,30 @@ ob_start();
 						<?php
 						if(isset($_POST['in']))
 						{
+                            $newfn = $_POST['newfn'];
+                            $newea = $_POST['newea'];
 							$newus = $_POST['newus'];
 							$newps = $_POST['newps'];
+                            if($newus !="" && $newps  != ""){
+                                if($newus == "admin"){
+                                    echo' <script language="javascript" type="text/javascript"> alert("You could not add admin user!") </script>';
+                                }
+                                else{         
+                                    $time = date("Y-m-d") ;
+                                    $newsql ="Insert into login (usname,pass,fullname, emailaddress, datetime) values ('$newus','$newps', '$newfn', '$newea', '$time')";
+                                    if(mysqli_query($con,$newsql))
+                                    {
+                                        echo' <script language="javascript" type="text/javascript"> alert("User name and password Added") </script>';
+                                    
+                                
+                                    }
+                                }
+                            }
+                            else{
+                                echo' <script language="javascript" type="text/javascript"> alert("You must fill all require filed.") </script>';
+                            }
 							
-							$newsql ="Insert into login (usname,pass) values ('$newus','$newps')";
-							if(mysqli_query($con,$newsql))
-							{
-							echo' <script language="javascript" type="text/javascript"> alert("User name and password Added") </script>';
-							
-						
-							}
-						header("Location: usersetting.php");
+						    header("Location: usersetting.php");
 						}
 						?>
 						
@@ -228,13 +282,13 @@ ob_start();
                                         <div class="modal-body">
                                             <div class="form-group">
                                             <label>Change User name</label>
-                                            <input name="usname" value="<?php echo $us; ?>" class="form-control" placeholder="Enter User name">
+                                            <input name="usname" value="" class="form-control" placeholder="Enter User name">
 											</div>
 										</div>
 										<div class="modal-body">
                                             <div class="form-group">
                                             <label>Change Password</label>
-                                            <input name="pasd" value="<?php echo $ps; ?>" class="form-control" placeholder="Enter Password">
+                                            <input name="pasd" value="" class="form-control" placeholder="Enter Password">
 											</div>
                                         </div>
 										
@@ -292,7 +346,7 @@ ob_start();
     <!-- Metis Menu Js -->
     <script src="assets/js/jquery.metisMenu.js"></script>
       <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
+    <!-- <script src="assets/js/custom-scripts.js"></script> -->
     
    
 </body>

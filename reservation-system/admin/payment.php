@@ -1,14 +1,14 @@
 <?php  
 session_start();  
-if(isset($_COOKIE["user"]))  
- {  
-    if($_COOKIE["user"] == "admin"){        
-        header("location: admin/home.php");
-     }
-     else{
-        header("location: home.php");
-     }
- }  
+// if(isset($_COOKIE["user"]))  
+//  {  
+//     if($_COOKIE["user"] == "admin"){        
+//         header("location: admin/home.php");
+//      }
+//      else{
+//         header("location: home.php");
+//      }
+//  }  
 ?> 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,7 +40,7 @@ if(isset($_COOKIE["user"]))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home.php"><?php //echo $_SESSION["user"]; ?> </a>
+                <a class="navbar-brand" href="home.php"><?php echo $_COOKIE["user"]; ?> </a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -54,7 +54,7 @@ if(isset($_COOKIE["user"]))
                         <li><a href="settings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -74,7 +74,7 @@ if(isset($_COOKIE["user"]))
                         <a  href="messages.php"><i class="fa fa-desktop"></i> News Letters</a>
                     </li>
 					<li>
-                        <a href="roombook.php"><i class="fa fa-bar-chart-o"></i>Room Booking</a>
+                        <a href="roombook.php"><i class="fa fa-bar-chart-o"></i> Room Booking</a>
                     </li>
                     <li>
                         <a class="active-menu" href="payment.php"><i class="fa fa-qrcode"></i> Payment</a>
@@ -83,7 +83,7 @@ if(isset($_COOKIE["user"]))
                         <a  href="profit.php"><i class="fa fa-qrcode"></i> Profit</a>
                     </li>
                     <li>
-                        <a href="logout.php" ><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <a href="../logout.php" ><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                     
 
@@ -190,6 +190,74 @@ if(isset($_COOKIE["user"]))
                     </div>
                     <!--End Advanced Tables -->
                 </div>
+                <div class="col-md-12">
+                    
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            PAYMENT INFORMATION
+                        </div>
+                        <div class="panel-body">
+                                <!-- Advanced Tables -->
+                            <div class="panel panel-default">
+                                <?php
+                                $sql = "select * from payment_list ";
+                                $re = mysqli_query($con,$sql)
+                                ?>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                            <thead>
+                                                <tr>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Card Number</th>
+                                                    <th>Expire Date</th>
+                                                    <th>Price</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            
+                                            <?php
+                                                while($row= mysqli_fetch_array($re))
+                                                {
+                                                    $id = $row['id'];
+                                                    if($id % 2 == 0) 
+                                                    {
+                                                        echo "<tr class=odd gradeX>
+                                                            <td>".$row['fName']."</td>
+                                                            <td>".$row['lName']."</td>
+                                                           <th>".$row['card_id']."</th>
+                                                           <th>".$row['expire_date']."</th>
+                                                           <th>".$row['price']."</th>
+                                                        </tr>";
+                                                    }
+                                                    else
+                                                    {
+                                                        echo"<tr class=even gradeC>
+                                                            <td>".$row['fName']."</td>
+                                                            <td>".$row['lName']."</td>
+                                                           <th>".$row['card_id']."</th>
+                                                           <th>".$row['expire_date']."</th>
+                                                           <th>".$row['price']."</th>
+                                                        </tr>";
+                                                    
+                                                    }
+                                                }
+                                            ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!--End Advanced Tables -->      
+                               
+                       </div>
+                        
+                    </div>
+                        
+                </div>
             </div>
                 <!-- /. ROW  -->
             
@@ -219,7 +287,7 @@ if(isset($_COOKIE["user"]))
             });
     </script>
          <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
+    <!-- <script src="assets/js/custom-scripts.js"></script> -->
     
    
 </body>

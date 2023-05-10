@@ -152,7 +152,7 @@ if(isset($_COOKIE["user"]))
     <!-- Metis Menu Js -->
     <script src="admin/assets/js/jquery.metisMenu.js"></script>
       <!-- Custom Js -->
-    <script src="admin/assets/js/custom-scripts.js"></script>
+    <!-- <script src="admin/assets/js/custom-scripts.js"></script> -->
     
    
 </body>

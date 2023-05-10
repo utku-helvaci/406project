@@ -1,14 +1,14 @@
 <?php  
 session_start();  
-if(isset($_COOKIE["user"]))  
- {  
-    if($_COOKIE["user"] == "admin"){        
-        header("location: admin/home.php");
-     }
-     else{
-        header("location: home.php");
-     }
- }  
+// if(isset($_COOKIE["user"]))  
+//  {  
+//     if($_COOKIE["user"] == "admin"){        
+//         header("location: admin/home.php");
+//      }
+//      else{
+//         header("location: home.php");
+//      }
+//  }  
 ?> 
 
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ if(isset($_COOKIE["user"]))
                         <li><a href="settings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -90,7 +90,7 @@ if(isset($_COOKIE["user"]))
                     </li>
                     
                     <li>
-                        <a href="logout.php" ><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <a href="../logout.php" ><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                     
 

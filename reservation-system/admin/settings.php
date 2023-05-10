@@ -1,14 +1,14 @@
-s<?php  
+<?php  
 session_start();  
-if(isset($_COOKIE["user"]))  
- {  
- 	if($_COOKIE["user"] == "admin"){ 		
-      	header("location: admin/home.php");
-     }
-     else{
-        header("location: home.php");
-     }
- }  
+// if(isset($_COOKIE["user"]))  
+//  {  
+//  	if($_COOKIE["user"] == "admin"){ 		
+//       	header("location: admin/home.php");
+//      }
+//      else{
+//         header("location: home.php");
+//      }
+//  }  
 ?> 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -50,7 +50,7 @@ if(isset($_COOKIE["user"]))
                         <li><a href="settings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
 					
@@ -73,8 +73,11 @@ if(isset($_COOKIE["user"]))
                     <li>
                         <a   href="roomdel.php"><i class="fa fa-pencil-square-o"></i> Delete Room</a>
                     </li>
+                    <!-- <li>
+                        <a  href="addpayment.php"><i class="fa fa-plus-circle"></i>Add Payment</a>
+                    </li> -->
 					
-
+                </ul>    
                     
             </div>
 
@@ -95,7 +98,7 @@ if(isset($_COOKIE["user"]))
             <?php
 						include ('db.php');
 						$sql = "select * from room";
-						$re = mysqli_query($con,$sql)
+						$re = mysqli_query($con,$sql) ;
 				?>
                 <div class="row">
 				
@@ -103,67 +106,123 @@ if(isset($_COOKIE["user"]))
 				<?php
 										while($row= mysqli_fetch_array($re))
 										{
-												$id = $row['type'];
-											if($id == "Royal Room") 
+											$id = $row['type_s'];
+											if($id == "guest") 
 											{
 												echo"<div class='col-md-3 col-sm-12 col-xs-12'>
-													<div class='panel panel-primary text-center no-boder bg-color-blue'>
-														<div class='panel-body'>
-															<i class='fa fa-users fa-5x'></i>
-															<h3>".$row['bedding']."</h3>
-														</div>
-														<div class='panel-footer back-footer-blue'>
-															".$row['type']."
+													<a href='detail.php?detail=" ;
+												echo $row['id'] ;
+												echo "'>
+														<div class='panel panel-primary text-center no-boder bg-color-blue'>
+															<div class='panel-body'>
+																<i class='fa fa-users fa-5x'></i>
+																<h3>".$row['bedding']."</h3>
+															</div>
+															<div class='panel-footer back-footer-blue'>
+																".$row['type']."
 
+															</div>
 														</div>
-													</div>
+													</a>
 												</div>";
 											}
-											else if ($id == "Club Royal")
+											else if ($id == "hotel")
 											{
 												echo"<div class='col-md-3 col-sm-12 col-xs-12'>
-													<div class='panel panel-primary text-center no-boder bg-color-green'>
-														<div class='panel-body'>
-															<i class='fa fa-users fa-5x'></i>
-															<h3>".$row['bedding']."</h3>
-														</div>
-														<div class='panel-footer back-footer-green'>
-															".$row['type']."
+													<a href='detail.php?detail=" ;
+												echo $row['id'] ;
+												echo "'>
+														<div class='panel panel-primary text-center no-boder bg-color-green'>
+															<div class='panel-body'>
+																<i class='fa fa-users fa-5x'></i>
+																<h3>".$row['bedding']."</h3>
+															</div>
+															<div class='panel-footer back-footer-green'>
+																".$row['type']."
 
+															</div>
 														</div>
-													</div>
-												</div>";
-											
-											}
-											else if($id =="Classic Suite")
-											{
-												echo"<div class='col-md-3 col-sm-12 col-xs-12'>
-													<div class='panel panel-primary text-center no-boder bg-color-brown'>
-														<div class='panel-body'>
-															<i class='fa fa-users fa-5x'></i>
-															<h3>".$row['bedding']."</h3>
-														</div>
-														<div class='panel-footer back-footer-brown'>
-															".$row['type']."
-
-														</div>
-													</div>
+													</a>
 												</div>";
 											
 											}
-											else if($id =="Single Suite")
+											else if($id =="appart")
 											{
 												echo"<div class='col-md-3 col-sm-12 col-xs-12'>
-													<div class='panel panel-primary text-center no-boder bg-color-red'>
-														<div class='panel-body'>
-															<i class='fa fa-users fa-5x'></i>
-															<h3>".$row['bedding']."</h3>
-														</div>
-														<div class='panel-footer back-footer-red'>
-															".$row['type']."
+													<a href='detail.php?detail=" ;
+												echo $row['id'] ;
+												echo "'>
+														<div class='panel panel-primary text-center no-boder bg-color-brown'>
+															<div class='panel-body'>
+																<i class='fa fa-users fa-5x'></i>
+																<h3>".$row['bedding']."</h3>
+															</div>
+															<div class='panel-footer back-footer-brown'>
+																".$row['type']."
 
+															</div>
 														</div>
-													</div>
+													</a>
+												</div>";
+											
+											}
+											else if($id =="dorms")
+											{
+												echo"<div class='col-md-3 col-sm-12 col-xs-12'>
+													<a href='detail.php?detail=" ;
+												echo $row['id'] ;
+												echo "'>
+														<div class='panel panel-primary text-center no-boder bg-color-red'>
+															<div class='panel-body'>
+																<i class='fa fa-users fa-5x'></i>
+																<h3>".$row['bedding']."</h3>
+															</div>
+															<div class='panel-footer back-footer-red'>
+																".$row['type']."
+
+															</div>
+														</div>
+													</a>
+												</div>";
+											
+											}
+											else if($id =="roommate")
+											{
+												echo"<div class='col-md-3 col-sm-12 col-xs-12'>
+													<a href='detail.php?detail=" ;
+												echo $row['id'] ;
+												echo "'>
+														<div class='panel panel-primary text-center no-boder bg-color-brown'>
+															<div class='panel-body'>
+																<i class='fa fa-users fa-5x'></i>
+																<h3>".$row['bedding']."</h3>
+															</div>
+															<div class='panel-footer back-footer-brown'>
+																".$row['type']."
+
+															</div>
+														</div>
+													</a>	
+												</div>";
+											
+											}
+											else 
+											{
+												echo"<div class='col-md-3 col-sm-12 col-xs-12'>
+													<a href='detail.php?detail=" ;
+												echo $row['id'] ;
+												echo "'>
+														<div class='panel panel-primary text-center no-boder bg-color-red'>
+															<div class='panel-body'>
+																<i class='fa fa-users fa-5x'></i>
+																<h3>".$row['bedding']."</h3>
+															</div>
+															<div class='panel-footer back-footer-red'>
+																".$row['type']."
+
+															</div>
+														</div>
+													</a>
 												</div>";
 											
 											}
@@ -189,7 +248,7 @@ if(isset($_COOKIE["user"]))
     <!-- Metis Menu Js -->
     <script src="assets/js/jquery.metisMenu.js"></script>
       <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
+    <!-- <script src="assets/js/custom-scripts.js"></script> -->
     
    
 </body>

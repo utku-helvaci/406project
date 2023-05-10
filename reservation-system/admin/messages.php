@@ -1,14 +1,14 @@
 <?php  
 session_start();  
-if(isset($_COOKIE["user"]))  
- {  
-    if($_COOKIE["user"] == "admin"){        
-        header("location: admin/home.php");
-     }
-     else{
-        header("location: home.php");
-     }
- }  
+// if(isset($_COOKIE["user"]))  
+//  {  
+//     if($_COOKIE["user"] == "admin"){        
+//         header("location: admin/home.php");
+//      }
+//      else{
+//         header("location: home.php");
+//      }
+//  }  
 ?> 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,7 +40,7 @@ if(isset($_COOKIE["user"]))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home.php"><?php //echo $_COOKIE["user"]; ?> </a>
+                <a class="navbar-brand" href="home.php"><?php echo $_COOKIE["user"]; ?> </a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -54,7 +54,7 @@ if(isset($_COOKIE["user"]))
                         <li><a href="settings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -83,7 +83,7 @@ if(isset($_COOKIE["user"]))
                         <a  href="profit.php"><i class="fa fa-qrcode"></i> Profit</a>
                     </li>
                     <li>
-                        <a href="logout.php" ><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <a href="../logout.php" ><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                     
 
@@ -172,7 +172,7 @@ if(isset($_COOKIE["user"]))
 								$log ="INSERT INTO `newsletterlog`(`title`, `subject`, `news`) VALUES ('$_POST[title]','$_POST[subject]','$_POST[news]')";
 								if(mysqli_query($con,$log))
 								{
-									echo '<script>alert("Massage sent...!") </script>' ;
+									echo '<script>alert("Message sent...!") </script>' ;
 											
 								}
 								

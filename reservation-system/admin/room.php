@@ -1,14 +1,14 @@
 <?php  
 session_start();  
-if(isset($_COOKIE["user"]))  
- {  
-    if($_COOKIE["user"] == "admin"){        
-        header("location: admin/home.php");
-     }
-     else{
-        header("location: home.php");
-     }
- }  
+// if(isset($_COOKIE["user"]))  
+//  {  
+//     if($_COOKIE["user"] == "admin"){        
+//         header("location: admin/home.php");
+//      }
+//      else{
+//         header("location: home.php");
+//      }
+//  }  
 ?> 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -50,7 +50,7 @@ if(isset($_COOKIE["user"]))
                         <li><a href="settings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
 					
@@ -73,6 +73,11 @@ if(isset($_COOKIE["user"]))
                     <li>
                         <a  href="roomdel.php"><i class="fa fa-desktop"></i> Delete Room</a>
                     </li>
+                   <!--  <li>
+                        <a  href="addpayment.php"><i class="fa fa-plus-circle"></i>Add Payment</a>
+                    </li> -->
+                    
+                </ul>   
 					
 
                     
@@ -102,61 +107,112 @@ if(isset($_COOKIE["user"]))
                             ADD NEW ROOM
                         </div>
                         <div class="panel-body">
-						<form name="form" method="post">
-                            <div class="form-group">
-                                            <label>Type Of Room *</label>
-                                            <select name="troom"  class="form-control" required>
-												<option value selected ></option>
-                                                <option value="Royal Room">Royal Room</option>
-                                                <option value="Club Royal">Club Royal</option>
-												<option value="Classic Suite">Classic Suite</option>
-												<option value="Single Suite">Single Suite</option>
-                                            </select>
-                              </div>
-							  
-								<div class="form-group">
-                                            <label>Bedding Type</label>
-                                            <select name="bed" class="form-control" required>
-												<option value selected ></option>
-                                                <option value="Single">Single</option>
-                                                <option value="Double">Double</option>
-												<option value="Triple">Triple</option>
-                                                <option value="Quad">Quad</option>
-												<option value="Triple">None</option>
-                                                                                             
-                                            </select>
-                                            
-                               </div>
-							 <input type="submit" name="add" value="Add New" class="btn btn-primary"> 
-							</form>
+    						<form name="form" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label>Type Of Room *</label>
+                                    <?php 
+                                        include ('db.php');
+                                        $sql = "SELECT  DISTINCT type FROM room " ;
+                                        $re = mysqli_query($con,$sql) ;
+                                        $id = 0 ;
+                                    ?>
+                                    <select name="troom"  class="form-control" required>
+                                        <?php 
+                                            while($row= mysqli_fetch_array($re))
+                                            {
+                                                $type = $row['type'];
+                                                $id ++ ;
+                                        ?>
+                                        <option value="<?php echo $type ;?>"><?php echo $type ;?></option>
+                                        <?php 
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+    							  
+    							<div class="form-group">
+                                    <label>Bedding Type</label>
+                                    <select name="bed" class="form-control" required>
+    									<option value selected ></option>
+                                        <option value="Single">Single</option>
+                                        <option value="Double">Double</option>
+    									<option value="Triple">Triple</option>
+                                        <option value="Quad">Quad</option>          
+                                    </select>                                        
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload_img" class="lab">Upolad Image</label>
+                                    <input type="file" name="upload_img" id="file" value="" >
+                                    <div id="uploadIMG" ></div>                                      
+                                </div>
+                                <div class="form-group">
+                                    <label>Comment</label>
+                                    <textarea class="room_comment col-md-12" id="room_comment" name="room_comment"></textarea>                                       
+                                </div>
+                                <div class="form-group">
+                                    <label>Abbreviation Of RoomType *</label>
+                                    <?php 
+                                        include ('db.php');
+                                        $sql = "SELECT  DISTINCT type_s FROM room " ;
+                                        $re = mysqli_query($con,$sql) ;
+                                        $id = 0 ;
+                                    ?>
+                                    <select name="tsroom"  class="form-control" required>
+                                        <?php 
+                                            while($row= mysqli_fetch_array($re))
+                                            {
+                                                $type = $row['type_s'];
+                                                $id ++ ;
+                                        ?>
+                                        <option value="<?php echo $type ;?>"><?php echo $type ;?></option>
+                                        <?php 
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+    							<input type="submit" name="add" value="Add New" class="btn btn-primary"> 
+    						</form>
 							<?php
-							 include('db.php');
-							 if(isset($_POST['add']))
-							 {
-										$room = $_POST['troom'];
-										$bed = $_POST['bed'];
-										$place = 'Free';
-										
-										$check="SELECT * FROM room WHERE type = '$room' AND bedding = '$bed'";
-										$rs = mysqli_query($con,$check);
-										$data = mysqli_fetch_array($rs, MYSQLI_NUM);
-										if($data[0] > 1) {
-											echo "<script type='text/javascript'> alert('Room Already in Exists')</script>";
-											
-										}
+							include('db.php');
+							if(isset($_POST['add']))
+							{
 
-										else
-										{
-							 
-										
-										$sql ="INSERT INTO `room`( `type`, `bedding`,`place`) VALUES ('$room','$bed','$place')" ;
-										if(mysqli_query($con,$sql))
-										{
-										 echo '<script>alert("New Room Added") </script>' ;
-										}else {
-											echo '<script>alert("Sorry ! Check The System") </script>' ;
-										}
-							 }
+                                extract($_POST);
+
+                                $imageFileType = strtolower(pathinfo($_FILES["upload_img"]["name"],PATHINFO_EXTENSION)) ;
+                                $fname=date('Ymd').time() ;
+                                $filename=$fname.".".$imageFileType ;
+                                $tempname=$_FILES['upload_img']['tmp_name'] ;
+                                $folder="images/".$filename ;
+                                move_uploaded_file($tempname,$folder) ;
+
+								$room = $_POST['troom'] ; 
+								$bed = $_POST['bed'] ;
+								$place = 'Free' ;
+
+                                $comment = $_POST['room_comment'] ;
+                                $room_ts = $_POST['tsroom'] ; 
+
+								
+								$check="SELECT * FROM room WHERE type = '$room' AND bedding = '$bed'  AND place = 'Free'";
+								$rs = mysqli_query($con,$check);
+								$data = mysqli_fetch_array($rs, MYSQLI_NUM);
+								if($date) {
+									echo "<script type='text/javascript'> alert('Room Already in Exists')</script>";
+									
+								}
+
+								else
+								{
+                                	$sql ="INSERT INTO `room`( `type`, `bedding`,`place`, `img_url`,`comment`, `type_s`) VALUES ('$room','$bed','$place','$folder','$comment','$room_ts')" ;
+								    if(mysqli_query($con,$sql))
+    								{
+    								    echo '<script>alert("New Room Added") </script>' ;
+    								}
+                                    else {
+    									echo '<script>alert("Sorry ! Check The System") </script>' ;
+    								}
+							    }
 							}
 							
 							?>
@@ -176,7 +232,7 @@ if(isset($_COOKIE["user"]))
 								<!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <?php
-						$sql = "select * from room limit 0,10";
+						$sql = "select * from room ";
 						$re = mysqli_query($con,$sql)
 						?>
                         <div class="panel-body">
@@ -255,7 +311,7 @@ if(isset($_COOKIE["user"]))
     <!-- Metis Menu Js -->
     <script src="assets/js/jquery.metisMenu.js"></script>
       <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
+    <!-- <script src="assets/js/custom-scripts.js"></script> -->
     
    
 </body>
