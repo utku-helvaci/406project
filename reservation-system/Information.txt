@@ -1,6 +1,6 @@
 admin panel :
 	user: admin
-	pass: fdsfds
+	pass: 1234
 user :
-	fdfds
-	fdsfdsfdsfds
+	test
+	123

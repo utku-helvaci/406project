@@ -144,7 +144,7 @@ if(isset($_COOKIE["user"]))
                                 $result = mysqli_query($con, $sql);
     
                                 if ($result) {
-                                    setcookie('user', $Username) ;
+                                    // setcookie('user', $Username) ;
                                     $Username = "";
                                     $Email = "";
                                     $Password = "";
