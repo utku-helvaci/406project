@@ -1,0 +1,6 @@
+admin panel :
+	user: admin
+	pass: 1234
+user :
+	Jayesh
+	12345
