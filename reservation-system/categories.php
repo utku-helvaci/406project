@@ -106,23 +106,42 @@ include('db.php');
 
 <!-- Gallery -->
 <section class="portfolio-w3ls" id="gallery">
+
+	
 		 
 
 		 		<?php 
 		 		$get = $_GET['cate'] ;
 		 		// var_dump($get) ;
-		 		$sql = "SELECT	type FROM room WHERE type_s = '".$get."' " ;
+		 		$sql = "SELECT	type FROM room WHERE type_s like '%".$get."%' " ;
 		 		$cate = mysqli_query($con, $sql) ;
 		 		$cate_name = mysqli_fetch_assoc($cate)['type'] ;
 		    	?>
 	        	<h3 class="title-w3-agileits title-black-wthree">Our <?php echo $cate_name ; ?></h3>
+
+	        	<div class="col-md-12" >
+	        		<input type="text" name="type_s" id="type_s" value="<?php echo $get; ?>" hidden>
+					<div class="col-md-6">
+						<div class="form-group">
+							<div class="col-md-2" style="text-align: right;"><label>From</label></div>
+							<div class="col-md-8"><input name="from"  id="from" type ="date" class="cin form-control">	</div>
+					    </div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+					        <div class="col-md-2"  style="text-align: right;"><label>To</label></div>
+							<div class="col-md-8"><input name="to"  id="to" type ="date" class="cin form-control">	</div>
+					    </div>
+					</div>
+				</div>
+				<div class="prev_gallery" id="prev_gallery">
 	        	<?php
 		 		
-		 		$sql = "SELECT	* FROM room WHERE type_s = '".$get."' " ;
+		 		$sql = "SELECT	* FROM room WHERE type_s like '%".$get."%' " ;
 		 		$cate = mysqli_query($con, $sql) ;
 			    if(mysqli_num_rows($cate)>0){
 			    	
-			        while ($rs = mysqli_fetch_assoc($cate)) {			        	
+			        while ($rs = mysqli_fetch_array($cate)) {			        	
 			        	$ids = $rs['id'] ;
 			        	$img = $rs['img_url'] ;
 			        	$title = $rs['type'] ;		
@@ -130,17 +149,18 @@ include('db.php');
 			   				 		
 		 		?>
 				
-					<div class="col-md-4 gallery-grid gallery1">
+					<div class="col-md-4 gallery-grid gallery1" id="gallery_hidden">
 						<a href="detail.php?detail=<?php echo $ids ; ?>" class=""><img src="<?php echo $img ; ?>" class="img-responsive" alt="/">
 							<div class="textbox">
 							<h4><?php echo $title ; ?></h4>
 								<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
 							</div>
-					</a>
+						</a>
 					</div>
 				<?php 
 				}}
 				?>
+				</div>
 				<div class="clearfix"> </div>
 </section>
 <!-- //gallery -->
@@ -266,6 +286,72 @@ fit: true
 	</div>
 <!-- //smooth scrolling -->
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		$('#from').change(function(){
+			$('#gallery_hidden').css("display", "none") ;
+			var from = $('#from').val() ;
+			var to = $('#to').val() ;
+			var type = $('#type_s').val() ;
+			$.ajax({
+                type: 'POST',
+                url:  'admin/post.php',
+                dataType: 'json',
+                data: {
+                    'flag' : 2,
+                   'from' : from,
+                   'to'   : to   ,  
+                   'type' : type
+                },
+                success: function (data) {
+                    // var res = JSON.parse(data) ;
+                    // console.log(res);
+                    console.log(data);
+                    var res = data.length ;
+                    var i = 0 ;
+                    var HTML = ""  ;
+                    while( i < res){
+                        HTML =  HTML + "<div class='col-md-4 gallery-grid gallery1'><a href='detail.php?detail="+ data[i]['id'] +" class=''><img src='"+ data[i]['img_url'] +"' class='img-responsive' alt='/'><div class='textbox'>							<h4>"+ data[i]['type'] +"</h4>	<p><i class='fa fa-picture-o' aria-hidden='true'></i></p></div></a></div>" ;     
+                        i ++ ; 
+                    }
+                    
+                    $('#prev_gallery').html(HTML) ;
+                }
+            })
+		});
+		$('#to').change(function(){
+			$('#gallery_hidden').css("display", "none") ;
+			var from = $('#from').val() ;
+			var to = $('#to').val() ;
+			var type = $('#type_s').val() ;
+			$.ajax({
+                type: 'POST',
+                url:  'admin/post.php',
+                dataType: 'json',
+                data: {
+                    'flag' : 2,
+                   'from' : from,
+                   'to'   : to   ,  
+                   'type' : type
+                },
+                success: function (data) {
+                    // var res = JSON.parse(data) ;
+                    // console.log(res);
+                    console.log(data);
+                    var res = data.length ;
+                    var i = 0 ;
+                    var HTML = "" ;
+                    while( i < res){
+                        HTML =  HTML + "<div class='col-md-4 gallery-grid gallery1'><a href='detail.php?detail="+ data[i]['id'] +" class=''><img src='"+ data[i]['img_url'] +"' class='img-responsive' alt='/'><div class='textbox'>							<h4>"+ data[i]['type'] +"</h4>	<p><i class='fa fa-picture-o' aria-hidden='true'></i></p></div></a></div>" ;     
+                        i ++ ; 
+                    }
+                    
+                    $('#prev_gallery').html(HTML) ;
+                }
+            })
+		});
+	})
+</script>
 </body>
 </html>
 

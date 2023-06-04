@@ -170,6 +170,10 @@ session_start();
                                         ?>
                                     </select>
                                 </div>
+                                <div class="form-group" style="padding-bottom: 20px ;">
+                                    <label>Price</label> <label style="float: right;">Per Night/Per Day</label>
+                                    <input type=""  class="room_price col-md-12" id="room_price" name="room_price" value="60" />                                       
+                                </div>
     							<input type="submit" name="add" value="Add New" class="btn btn-primary"> 
     						</form>
 							<?php
@@ -180,11 +184,16 @@ session_start();
                                 extract($_POST);
 
                                 $imageFileType = strtolower(pathinfo($_FILES["upload_img"]["name"],PATHINFO_EXTENSION)) ;
+                                // echo $imageFileType ;
                                 $fname=date('Ymd').time() ;
                                 $filename=$fname.".".$imageFileType ;
                                 $tempname=$_FILES['upload_img']['tmp_name'] ;
                                 $folder="images/".$filename ;
-                                move_uploaded_file($tempname,$folder) ;
+
+                                $path ="../".$folder ;
+                                // echo $tempname ;
+                                // echo $folder ;
+                                move_uploaded_file($tempname,$path) ;
 
 								$room = $_POST['troom'] ; 
 								$bed = $_POST['bed'] ;
@@ -192,19 +201,20 @@ session_start();
 
                                 $comment = $_POST['room_comment'] ;
                                 $room_ts = $_POST['tsroom'] ; 
+                                $price = $_POST['room_price'] ; 
 
 								
 								$check="SELECT * FROM room WHERE type = '$room' AND bedding = '$bed'  AND place = 'Free'";
 								$rs = mysqli_query($con,$check);
 								$data = mysqli_fetch_array($rs, MYSQLI_NUM);
-								if($date) {
+								if($date[0]) {
 									echo "<script type='text/javascript'> alert('Room Already in Exists')</script>";
 									
 								}
 
 								else
 								{
-                                	$sql ="INSERT INTO `room`( `type`, `bedding`,`place`, `img_url`,`comment`, `type_s`) VALUES ('$room','$bed','$place','$folder','$comment','$room_ts')" ;
+                                	$sql ="INSERT INTO `room`( `type`, `bedding`,`place`, `img_url`,`comment`, `type_s`, 'price') VALUES ('$room','$bed','$place','$folder','$comment','$room_ts','$price')" ;
 								    if(mysqli_query($con,$sql))
     								{
     								    echo '<script>alert("New Room Added") </script>' ;
@@ -243,6 +253,7 @@ session_start();
                                             <th>Room ID</th>
                                             <th>Room Type</th>
 											<th>Bedding</th>
+                                            <th>Price</th>
                                             
                                         </tr>
                                     </thead>
@@ -258,6 +269,7 @@ session_start();
 													<td>".$row['id']."</td>
 													<td>".$row['type']."</td>
 												   <th>".$row['bedding']."</th>
+                                                   <th>".$row['price']."</th>
 												</tr>";
 											}
 											else
@@ -266,6 +278,7 @@ session_start();
 													<td>".$row['id']."</td>
 													<td>".$row['type']."</td>
 												   <th>".$row['bedding']."</th>
+                                                   <th>".$row['price']."</th>
 												</tr>";
 											
 											}

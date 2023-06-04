@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2023 at 08:26 PM
+-- Generation Time: May 18, 2023 at 04:41 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -60,7 +60,9 @@ INSERT INTO `login` (`id`, `usname`, `pass`, `fullname`, `emailaddress`, `dateti
 (6, 'test', '123', '', '', '2023-05-08'),
 (7, 'ttt', '123', '(NULL)', 'ttt@gmail.com', '0000-00-00'),
 (8, 'ty', '123', '(NULL)', 'ty@gmail.com', '0000-00-00'),
-(9, 'signuptest', '123', '(NULL)', 'signuptest@gmail.com', '0000-00-00');
+(9, 'signuptest', '123', '(NULL)', 'signuptest@gmail.com', '0000-00-00'),
+(10, 'yyyy', '123', '(NULL)', 'yyy@gmail.com', '0000-00-00'),
+(11, '11111111', '123123', '(NULL)', '11111111@gmail.com', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -136,11 +138,9 @@ CREATE TABLE `payment_list` (
 --
 
 INSERT INTO `payment_list` (`id`, `fName`, `lName`, `card_id`, `expire_date`, `cvv`, `price`) VALUES
-(1, 'test', 'teste1', '12354564446', '2023-05-31', '446', NULL),
-(2, 'tetddt', 'henry', '23432432432432', '2023-05-09', '432', NULL),
-(3, 'yyyyy', 'rrrrrr', '4564646464646', '2023-05-09', '646', NULL),
-(4, '555', '666', '23432432432432', '2023-05-13', '432', '456'),
-(5, 'testtt', 'testyy', '3435553543543', '2023-05-31', '543', '500');
+(1, 'Henry', 'Pol', '1231231231234', '2023-05-31', '234', '200'),
+(2, 'Henry', 'Pol', '23432432432432', '2023-05-31', '432', '230'),
+(3, 'eeee', 'www', '232321321', '2023-05-31', '321', '34');
 
 -- --------------------------------------------------------
 
@@ -159,38 +159,41 @@ CREATE TABLE `room` (
   `img_url2` text DEFAULT NULL,
   `comment` text DEFAULT NULL,
   `type_s` text DEFAULT NULL,
-  `price` text DEFAULT NULL
+  `price` text DEFAULT NULL,
+  `free_number` decimal(10,0) DEFAULT 2
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `room`
 --
 
-INSERT INTO `room` (`id`, `type`, `bedding`, `place`, `cusid`, `img_url`, `img_url1`, `img_url2`, `comment`, `type_s`, `price`) VALUES
-(1, 'Guest House', 'Single', 'Free', NULL, 'images/g7.jpg', NULL, NULL, NULL, 'guest', NULL),
-(2, 'Guest House', 'Double', 'Free', NULL, 'images/g8.jpg', NULL, NULL, 'guest1', 'guest', NULL),
-(3, 'Guest House', 'Triple', 'Free', NULL, 'images/g9.jpg', NULL, NULL, 'guest2', 'guest', NULL),
-(4, 'Guest House', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'guest', NULL),
-(5, 'Hotels', 'Single', 'Free', NULL, 'images/image1.jpg', NULL, NULL, NULL, 'hotel', NULL),
-(6, 'Hotels', 'Double', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL),
-(7, 'Hotels', 'Triple', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL),
-(8, 'Hotels', 'Quad', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL),
-(9, 'Apartments', 'Single', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL),
-(10, 'Apartments', 'Double', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL),
-(11, 'Apartments', 'Triple', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL),
-(12, 'Apartments', 'Quad', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL),
-(13, 'Dorms', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL),
-(14, 'Dorms', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL),
-(15, 'Dorms', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL),
-(16, 'Dorms', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL),
-(17, 'Available Roommates', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'roommate', NULL),
-(18, 'Available Roommates', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'roommate', NULL),
-(19, 'Available Roommates', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'this is test!', 'roommate', NULL),
-(20, 'Available Roommates', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'this is test', 'roommate', NULL),
-(21, 'Shared houses', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'shared', NULL),
-(22, 'Shared houses', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'You can incorporate this function, so that the user can choose where they want to reserve,\r\nGuest house (like airbnb), Hotels, apartments, dorms, roommates and family house or\r\nhotel or a shared house with a roommate.\r\nThe hotels section can have many different hotels in the area (prices in Turkish lira or\r\nUSD) the same for dorms and others. I will share the different pictures for each and their\r\nlocation.\r\nThe design can be as the one for the website you have provided, it was good.\r\nThe categories can be shown on the homepage or can be in the menu on the homepage.\r\nWhen any category is clicked (for example if the user clicks on apartments) it should take\r\nthem to a page where there is a list of different apartments (if you like you can add a\r\nbonus where the user can filter by the number of rooms or price)', 'shared', NULL),
-(23, 'Shared houses', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'shared', NULL),
-(29, 'Shared houses', 'Quad', 'Free', NULL, 'images/202305071683454366.', NULL, NULL, 'fdsafdsafdsafdsafdsafdsfdsafdsafdsafdsafdsa\r\nThis is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.', 'shared', NULL);
+INSERT INTO `room` (`id`, `type`, `bedding`, `place`, `cusid`, `img_url`, `img_url1`, `img_url2`, `comment`, `type_s`, `price`, `free_number`) VALUES
+(1, 'Guest House', 'Single', 'Full', NULL, 'images/g7.jpg', NULL, NULL, NULL, 'guest', NULL, '0'),
+(2, 'Guest House', 'Double', 'Free', NULL, 'images/g8.jpg', NULL, NULL, 'guest1', 'guest', NULL, '2'),
+(3, 'Guest House', 'Triple', 'Free', NULL, 'images/g9.jpg', NULL, NULL, 'guest2', 'guest', NULL, '2'),
+(4, 'Guest House', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'guest', NULL, '2'),
+(5, 'Hotels', 'Single', 'Free', NULL, 'images/image1.jpg', NULL, NULL, NULL, 'hotel', NULL, '2'),
+(6, 'Hotels', 'Double', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL, '2'),
+(7, 'Hotels', 'Triple', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL, '2'),
+(8, 'Hotels', 'Quad', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL, '2'),
+(9, 'Apartments', 'Single', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, '2'),
+(10, 'Apartments', 'Double', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, '2'),
+(11, 'Apartments', 'Triple', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, '2'),
+(12, 'Apartments', 'Quad', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, '2'),
+(13, 'Dorms', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, '2'),
+(14, 'Dorms', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, '2'),
+(15, 'Dorms', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, '2'),
+(16, 'Dorms', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, '2'),
+(17, 'Available Roommates', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'roommate', NULL, '2'),
+(18, 'Available Roommates', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'roommate', NULL, '2'),
+(19, 'Available Roommates', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'this is test!', 'roommate', NULL, '2'),
+(20, 'Available Roommates', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'this is test', 'roommate', NULL, '2'),
+(21, 'Shared houses', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'shared', NULL, '2'),
+(22, 'Shared houses', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'You can incorporate this function, so that the user can choose where they want to reserve,\r\nGuest house (like airbnb), Hotels, apartments, dorms, roommates and family house or\r\nhotel or a shared house with a roommate.\r\nThe hotels section can have many different hotels in the area (prices in Turkish lira or\r\nUSD) the same for dorms and others. I will share the different pictures for each and their\r\nlocation.\r\nThe design can be as the one for the website you have provided, it was good.\r\nThe categories can be shown on the homepage or can be in the menu on the homepage.\r\nWhen any category is clicked (for example if the user clicks on apartments) it should take\r\nthem to a page where there is a list of different apartments (if you like you can add a\r\nbonus where the user can filter by the number of rooms or price)', 'shared', NULL, '2'),
+(23, 'Shared houses', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'shared', NULL, '2'),
+(29, 'Shared houses', 'Quad', 'Free', NULL, 'images/202305181684373938.jpg', NULL, NULL, 'fdsafdsafdsafdsafdsafdsfdsafdsafdsafdsafdsa\r\nThis is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.', 'shared', NULL, '2'),
+(30, 'Guest House', 'Single', 'Free', NULL, 'images/202305181684373938.jpg', NULL, NULL, 'fdsfdsfds', 'guest', NULL, '2'),
+(31, 'Guest House', 'Single', 'Free', NULL, 'images/202305181684373938.jpg', NULL, NULL, 'fdsafdsa', 'guest', NULL, '2');
 
 -- --------------------------------------------------------
 
@@ -222,10 +225,8 @@ CREATE TABLE `roombook` (
 --
 
 INSERT INTO `roombook` (`id`, `Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`, `stat`, `nodays`) VALUES
-(2, 'Mr.', 'Teset', 'test', 'test@gmail.com', 'Turkish', 'Turkey', '12321321321', 'Royal Room', 'Triple', '1', 'Breakfast', '2023-05-08', '2023-05-09', 'Conform', 1),
-(5, 'Miss.', 'fff', 'ddd', 'christiana@gmail.com', 'Indian', 'Anguilla', '23432432', 'Hotels', 'Single', '3', 'Room only', '2023-05-10', '2023-05-11', 'Not Conform', 1),
-(6, 'Miss.', '555', '666', 'henry@gmail.com', 'Turkish', 'Turkey', '555666', 'Guest Houses', 'Single', '1', 'Breakfast', '2023-05-13', '0000-00-00', 'Not Conform', NULL),
-(7, 'Dr.', 'testtt', 'testyy', 'testyy@gmail.com', 'Non Turkish', 'Finland', '356889978787', 'Apartments', 'Single', '1', 'Half Board', '2023-05-31', '0000-00-00', 'Not Conform', NULL);
+(1, 'Dr.', 'Henry', 'Pol', 'henry@gmail.com', 'Turkish', 'Turkey', '123123123123', 'Guest House', 'Single', '1', 'Breakfast', '2023-05-15', '2023-05-16', 'Not Conform', NULL),
+(2, 'Dr.', 'henry', 'pol', 'henry1@gmail.com', 'Turkish', 'Turkey', '12321321321321', 'Guest House', 'Single', '1', 'Room only', '2023-05-16', '2023-05-17', 'Not Conform', NULL);
 
 --
 -- Indexes for dumped tables
@@ -281,7 +282,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `newsletterlog`
@@ -293,19 +294,19 @@ ALTER TABLE `newsletterlog`
 -- AUTO_INCREMENT for table `payment_list`
 --
 ALTER TABLE `payment_list`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `roombook`
 --
 ALTER TABLE `roombook`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

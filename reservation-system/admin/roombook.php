@@ -417,7 +417,7 @@ session_start();
 								<td><b>Available Roommates</b>	 </td>
 								<td><button type="button" class="btn btn-primary btn-circle"><?php 
 								
-								$f4 =$dr - $cdr; 
+								$f5 =$dr - $cdr; 
 								if($f5 <=0 )
 									{	$f5 = "NO";
 										echo $f5;
@@ -431,7 +431,7 @@ session_start();
 								<td><b>Shared houses</b>	 </td>
 								<td><button type="button" class="btn btn-primary btn-circle"><?php 
 								
-								$f4 =$dr - $cdr; 
+								$f6 =$dr - $cdr; 
 								if($f6 <=0 )
 									{	$f6 = "NO";
 										echo $f6;
@@ -445,7 +445,7 @@ session_start();
 								<td><b>Total Rooms	</b> </td>
 								<td> <button type="button" class="btn btn-danger btn-circle"><?php 
 								
-								$f5 =$r-$cr; 
+								$f7 =$r-$cr; 
 								if($f7 <=0 )
 									{	$f7 = "NO";
 										echo $f7;
