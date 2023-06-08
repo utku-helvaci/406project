@@ -50,8 +50,8 @@ include('db.php');
 			</div>
 			<div class="contact-bnr-w3-agile">
 				<ul>
-					<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:ezpz9675@gmail.com">ezpz9675@gmail.com</a></li>
-					<li><i class="fa fa-phone" aria-hidden="true"></i>+90 5338358927</li>	
+					<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:utku.helvaci.tux@gmail.com">utku.helvaci.tux@gmail.com</a></li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i>+90 5338318223</li>
 					<li class="s-bar">
 						<div class="search">
 							<input class="search_box" type="checkbox" id="search_box">
@@ -382,7 +382,7 @@ include('db.php');
 								     </ul>
 							</div>
 							<div class="price-selet">	
-								<h3><span>₹</span> 2,448</h3>						
+								<h3><span>₺</span> 2,448</h3>
 								<a href="admin/reservation.php" >Book Now</a>
 							</div>
 						</div>
@@ -407,7 +407,7 @@ include('db.php');
 								</ul>
 							</div>
 							<div class="price-selet">
-								<h3><span>₹</span> 1,929</h3>
+								<h3><span>₺</span> 1,929</h3>
 								<a href="admin/reservation.php" >Book Now</a>
 							</div>
 						</div>
@@ -432,7 +432,7 @@ include('db.php');
 								</ul>
 							</div>
 							<div class="price-selet">
-								<h3><span>₹</span> 1,809</h3>
+								<h3><span>₺</span> 1,809</h3>
 								<a href="admin/reservation.php" >Book Now</a>
 							</div>
 						</div>
@@ -457,7 +457,7 @@ include('db.php');
 								</ul>
 							</div>
 							<div class="price-selet">
-								<h3><span>₹</span> 1,589</h3>
+								<h3><span>₺</span> 1,589</h3>
 								<a href="admin/reservation.php" >Book Now</a>
 							</div>
 						</div>
@@ -520,7 +520,7 @@ include('db.php');
 								<p>Nice hotel to stay, Good food quality and very clean and comfortable hotel. 
 									Little bit expensive and costlier.
 									One of the good quality hotel in Jalgaon.</p>
-								<h5>chetra sonawane</h5>
+								<h5>hasan demirci</h5>
 								<p>travel</p>
 							</div>
 							<div class="clearfix"> </div>
@@ -631,9 +631,9 @@ include('db.php');
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 contact-w3-agile1" data-aos="flip-right">
 			<h4>Connect With Us</h4>
-			<p class="contact-agile1"><strong>Phone :</strong>+90 5338358927</p>
-			<p class="contact-agile1"><strong>Email :</strong> <a href="mailto:ezpz9675@gmail.com">ezpz9675@gmail.com</a></p>
-			<p class="contact-agile1"><strong>Address :</strong> Turky.</p>
+			<p class="contact-agile1"><strong>Phone :</strong>+90 5338318223</p>
+			<p class="contact-agile1"><strong>Email :</strong> <a href="mailto:utku.helvaci.tux@gmail.com">utku.helvaci.tux@gmail.com</a></p>
+			<p class="contact-agile1"><strong>Address :</strong> North Cyprus, Magusa, EMU.</p>
 			<div class="social-bnr-agileits footer-icons-agileinfo">
 				<ul class="social-icons3">
 								<li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
@@ -674,9 +674,7 @@ include('db.php');
 	</div>
 </section>
 <!-- /contact -->
-			<div class="copy">
-		        <p>© 2023 Reser<span>vation . All Rights Reserved | Design by <a href="index.php">Henry<span> Pollanen</a> </p>
-		    </div>
+
 <!--/footer -->
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -688,7 +686,7 @@ include('db.php');
     function sendEmail() {
         Email.send({
             SecureToken: "security token of your smtp",
-            To: "ezpz9675@gmail.com",
+            To: "utku.helvaci.tux@gmail.com",
             From: document.getElementById('email').value,
             Subject: "From" + document.getElementById('name').value ,
             Body: document.getElementById('phone').value
