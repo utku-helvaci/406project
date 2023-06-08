@@ -109,22 +109,22 @@ session_start();
                         <div class="panel-body">
     						<form name="form" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label>Type Of Room *</label>
-                                    <?php 
+                                    <label>Room Type</label>
+                                    <?php
                                         include ('db.php');
-                                        $sql = "SELECT  DISTINCT type FROM room " ;
+                                        $sql = "SELECT  DISTINCT type_s FROM room " ;
                                         $re = mysqli_query($con,$sql) ;
                                         $id = 0 ;
                                     ?>
-                                    <select name="troom"  class="form-control" required>
-                                        <?php 
+                                    <select name="tsroom"  class="form-control" required>
+                                        <?php
                                             while($row= mysqli_fetch_array($re))
                                             {
-                                                $type = $row['type'];
+                                                $type = $row['type_s'];
                                                 $id ++ ;
                                         ?>
                                         <option value="<?php echo $type ;?>"><?php echo $type ;?></option>
-                                        <?php 
+                                        <?php
                                             }
                                         ?>
                                     </select>
@@ -149,31 +149,7 @@ session_start();
                                     <label>Comment</label>
                                     <textarea class="room_comment col-md-12" id="room_comment" name="room_comment"></textarea>                                       
                                 </div>
-                                <div class="form-group">
-                                    <label>Abbreviation Of RoomType *</label>
-                                    <?php 
-                                        include ('db.php');
-                                        $sql = "SELECT  DISTINCT type_s FROM room " ;
-                                        $re = mysqli_query($con,$sql) ;
-                                        $id = 0 ;
-                                    ?>
-                                    <select name="tsroom"  class="form-control" required>
-                                        <?php 
-                                            while($row= mysqli_fetch_array($re))
-                                            {
-                                                $type = $row['type_s'];
-                                                $id ++ ;
-                                        ?>
-                                        <option value="<?php echo $type ;?>"><?php echo $type ;?></option>
-                                        <?php 
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group" style="padding-bottom: 20px ;">
-                                    <label>Price</label> <label style="float: right;">Per Night/Per Day</label>
-                                    <input type=""  class="room_price col-md-12" id="room_price" name="room_price" value="60" />                                       
-                                </div>
+
     							<input type="submit" name="add" value="Add New" class="btn btn-primary"> 
     						</form>
 							<?php
@@ -185,8 +161,10 @@ session_start();
 
                                 $imageFileType = strtolower(pathinfo($_FILES["upload_img"]["name"],PATHINFO_EXTENSION)) ;
                                 // echo $imageFileType ;
-                                $fname=date('Ymd').time() ;
-                                $filename=$fname.".".$imageFileType ;
+
+                                $filename=strtolower(basename($_FILES["upload_img"]["name"]));
+                               // $fname=date('Ymd').time() ;
+                               // $filename=$fname.".".$imageFileType ;
                                 $tempname=$_FILES['upload_img']['tmp_name'] ;
                                 $folder="images/".$filename ;
 
@@ -201,7 +179,6 @@ session_start();
 
                                 $comment = $_POST['room_comment'] ;
                                 $room_ts = $_POST['tsroom'] ; 
-                                $price = $_POST['room_price'] ; 
 
 								
 								$check="SELECT * FROM room WHERE type = '$room' AND bedding = '$bed'  AND place = 'Free'";
@@ -214,7 +191,7 @@ session_start();
 
 								else
 								{
-                                	$sql ="INSERT INTO `room`( `type`, `bedding`,`place`, `img_url`,`comment`, `type_s`, 'price') VALUES ('$room','$bed','$place','$folder','$comment','$room_ts','$price')" ;
+                                	$sql ="INSERT INTO `room`( `type`, `bedding`,`place`, `img_url`,`comment`, `type_s`) VALUES ('$room','$bed','$place','$folder','$comment','$room_ts')" ;
 								    if(mysqli_query($con,$sql))
     								{
     								    echo '<script>alert("New Room Added") </script>' ;
@@ -253,7 +230,6 @@ session_start();
                                             <th>Room ID</th>
                                             <th>Room Type</th>
 											<th>Bedding</th>
-                                            <th>Price</th>
                                             
                                         </tr>
                                     </thead>
@@ -269,7 +245,6 @@ session_start();
 													<td>".$row['id']."</td>
 													<td>".$row['type']."</td>
 												   <th>".$row['bedding']."</th>
-                                                   <th>".$row['price']."</th>
 												</tr>";
 											}
 											else
@@ -278,7 +253,6 @@ session_start();
 													<td>".$row['id']."</td>
 													<td>".$row['type']."</td>
 												   <th>".$row['bedding']."</th>
-                                                   <th>".$row['price']."</th>
 												</tr>";
 											
 											}
