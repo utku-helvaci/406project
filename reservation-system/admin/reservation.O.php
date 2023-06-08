@@ -15,8 +15,6 @@ include('db.php')
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-   <!-- jQuery Js -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -28,7 +26,7 @@ include('db.php')
                         <a   href="../index.php"><i class="fa fa-home"></i> Homepage</a>
                     </li>
                     
-				</ul>
+					</ul>
 
             </div>
 
@@ -127,57 +125,35 @@ include('db.php')
                                     RESERVATION INFORMATION
                                 </div>
                                 <div class="panel-body">
-
-                                    <div class="form-group">
-                                                <label>Check-In</label>
-                                                <input name="cin"  id="cin" type ="date" class="cin form-control">
-                                                
-                                    </div>
-                                    <div class="form-group">
-                                                <label>Check-Out</label>
-                                                <input name="cout"  id="cout" type ="date" class="cout form-control">
-                                                
-                                    </div>
-                                    <div class="form-group">
-                                                <label>Type Of Room *</label>
-                                                <?php 
-                                                $sql1 = "SELECT DISTINCT room.type FROM room WHERE place = 'Free' " ;
-                                                $result1 = mysqli_query($con,$sql1) ;
-                                                ?>
-
-                                                <select name="troom"  class="troom form-control" required>
-                                                    <option value selected ></option>
-                                                <?php
-                                                while($row= mysqli_fetch_array($result1))
-                                                {
-                                                    echo "<option value='".$row['type']."'>".$row['type']."</option>" ;
-                                                }
-                                                ?>
-                                                </select>
-                                    </div>
-                                    <div class="form-group">
-                                                <label>Bedding Type</label>
-                                                <?php 
-                                                $sql2 = "SELECT DISTINCT room.bedding FROM room WHERE place = 'Free' " ;
-                                                $result2 = mysqli_query($con,$sql2) ;
-                                                ?>
-                                                
-                                                <select name="bed" class="bed form-control" required>
-                                                    <option value selected ></option>
-                                                    <?php
-                                                        while($row= mysqli_fetch_array($result2))
-                                                        {
-                                                            echo "<option value='".$row['bedding']."'>".$row['bedding']."</option>" ;
-                                                        }
-                                                    ?>                                                   
-                                                 
-                                                </select>
-                                    </div>
-                                    <div class="form-group">
-                                                <label>No.of Rooms *</label>
-                                                <select name="nroom" class="nroom form-control" required>
-
-                                                <option value selected ></option>
+                                        <div class="form-group">
+                                                    <label>Type Of Room *</label>
+                                                    <select name="troom"  class="form-control" required>
+                                                        <option value selected ></option>
+                                                        <option value="Guest Houses">Guest Houses</option>
+                                                        <option value="Hotels">Hotels</option>
+                                                        <option value="Apartments">Apartments</option>
+                                                        <option value="Dorms">Dorms</option>
+                                                        <option value="Available Roommates">Available Roommates</option>
+                                                        <option value="Shared houses">Shared houses</option>
+                                                    </select>
+                                      </div>
+                                      <div class="form-group">
+                                                    <label>Bedding Type</label>
+                                                    <select name="bed" class="form-control" required>
+                                                        <option value selected ></option>
+                                                        <option value="Single">Single</option>
+                                                        <option value="Double">Double</option>
+                                                        <option value="Triple">Triple</option>
+                                                        <option value="Quad">Quad</option>
+                                                        <option value="None">None</option>
+                                                        
+                                                     
+                                                    </select>
+                                      </div>
+                                      <div class="form-group">
+                                                    <label>No.of Rooms *</label>
+                                                    <select name="nroom" class="form-control" required>
+                                                        <option value selected ></option>
                                                         <option value="1">1</option>
                                                        <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -185,59 +161,33 @@ include('db.php')
                                                         <option value="5">5</option>
                                                         <option value="6">6</option>
                                                         <option value="7">7</option>
-
-                                               //     <script type="text/javascript">
-                                                 //       jQuery(document).ready(function($){
-                                                   //         $('.bed').change(function(){
-                                                     //           var troom_val = $('.troom').val() ;
-                                                       //         var bed = $('.bed').val() ;
-                                                         //       // alert(troom_val) ;
-                                                         //       $.ajax({
-                                                           //         type: 'POST',
-                                                             //       url:  'post.php',
-                                                               //     dataType: 'json',
-                                                                 //   data: {
-                                                                  //      'flag' : 1 ,
-                                                                   //    'troom' : troom_val,
-                                                                   //    'bed'   : bed
-                                                                   // },
-                                                                   // success: function (data) {
-                                                                   //     var res = JSON.parse(data) ;
-                                                                        // console.log(res);
-                                                                   //     var i = 1 ;
-                                                                   //     var HTML ;
-                                                                   //     while( i <= res){
-                                                                   //         HTML =  HTML + "<option value='" + i + "'> " + i + "</option>" ;
-                                                                   //         i ++ ;
-                                                                   //     }
-                                                                   //     HTML = "<option value selected ></option>" + HTML ;
-                                                                   //     $('.nroom').html(HTML) ;
-                                                                  //  }
-                                                               // })
-                                                                
-                                                          //  })
-                                                       // });
-                                                   // </script>
-
-
+                                                    </select>
+                                      </div>
+                                     
+                                     
+                                      <div class="form-group">
+                                                    <label>Meal Plan</label>
+                                                    <select name="meal" class="form-control"required>
+                                                        <option value selected ></option>
+                                                        <option value="Room only">Room only</option>
+                                                        <option value="Breakfast">Breakfast</option>
+                                                        <option value="Half Board">Half Board</option>
+                                                        <option value="Full Board">Full Board</option>
+                                                        
+                                                        
+                                                     
+                                                    </select>
+                                      </div>
+                                      <div class="form-group">
+                                                    <label>Check-In</label>
+                                                    <input name="cin" type ="date" class="form-control">
                                                     
-                                                    <?php
+                                       </div>
+                                       <div class="form-group">
+                                                    <label>Check-Out</label>
+                                                    <input name="cout" type ="date" class="form-control">
                                                     
-                                                    ?>
-                                                </select>
-                                    </div>
-                                 
-                                 
-                                    <div class="form-group">
-                                                <label>Meal Plan</label>
-                                                <select name="meal" class="meal form-control"required>
-                                                    <option value selected ></option>
-                                                    <option value="Room only">Room only</option>
-                                                    <option value="Breakfast">Breakfast</option>
-                                                    <option value="Half Board">Half Board</option>
-                                                    <option value="Full Board">Full Board</option>
-                                                </select>
-                                    </div>
+                                       </div>
                                </div>
                                 
                             </div>
@@ -275,18 +225,50 @@ include('db.php')
                                             </div>
                                             <div class="form-group">
                                                 <label>Expire Date *</label>
-                                                <input name="ext_date" required type ="date" class="form-control" />
+                                                <input name="cin" required type ="date" class="form-control" />
                                             </div>
                                             <div class="form-group">
                                                 <label>CVV *</label>
-                                                <input name="cvv" required type ="text" class="form-control" />
+                                                <input name="cout" required type ="text" class="form-control" />
                                             </div>
                                             
                                             <!-- <input type="submit" name="add" value="Add New" class="btn btn-primary">  -->
                                         <!-- </form> -->
                                         <?php
                                         include('db.php');
-                                        
+                                        // if(isset($_POST['add']))
+                                        // {
+
+                                        //     extract($_POST);                                
+
+                                        //     $fname = $_POST['first_name'] ; 
+                                        //     $lname = $_POST['last_name'] ;
+                                        //     $cardnum = $_POST['card_num'] ;
+                                        //     $exdate = $_POST['cin'] ;
+                                        //     $cvv = $_POST['cout'] ; 
+                                        //     $price = $_POST['price'] ; 
+
+                                            
+                                        //     $check="SELECT * FROM payment_list WHERE fName = '$fname' AND lName = '$lname'  AND card_id = '$cardnum' AND  cvv = '$cvv' AND  price = '$price'  ";
+                                        //     $rs = mysqli_query($con,$check);
+                                        //     $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+                                        //     if($data) {
+                                        //         echo "<script type='text/javascript'> alert('Payment Already in Exists')</script>";
+                                                
+                                        //     }
+
+                                        //     else
+                                        //     {
+                                        //         $sql ="INSERT INTO `payment_list`( `fName`, `lName`,`card_id`, `expire_date`,`cvv`,`price`) VALUES ('$fname','$lname','$cardnum','$exdate','$cvv',`$price`)" ;
+                                        //         if(mysqli_query($con,$sql))
+                                        //         {
+                                        //             echo '<script>alert("New Payment Added") </script>' ;
+                                        //         }
+                                        //         else {
+                                        //             echo '<script>alert("Sorry ! Check The System") </script>' ;
+                                        //         }
+                                        //     }
+                                        // }
                                         
                                         ?>
                                     </div>
@@ -394,21 +376,7 @@ include('db.php')
                                             else
                                             {
                                                 $new ="Not Conform";
-                                                $sql = "SELECT  room.free_number FROM room WHERE TYPE = '$_POST[troom]' AND bedding = '$_POST[bed]'" ;
-                                                $result = mysqli_query($con, $sql) ;
-                                                $data = mysqli_fetch_array($result, MYSQLI_NUM);
-                                                // var_dump($data[0]) ;
-
-                                                $rest = $data[0] - $_POST['nroom'] ;
-                                                if($rest == 0){
-                                                    $sql1 =  "UPDATE room SET free_number = '$rest', place = 'Full'  WHERE type = '$_POST[troom]' AND bedding = '$_POST[bed]'" ;
-                                                }
-                                                else{
-                                                    $sql1 =  "UPDATE room SET free_number = '$rest'  WHERE type = '$_POST[troom]' AND bedding = '$_POST[bed]'" ;
-                                                }                                                
-                                                $result1 = mysqli_query($con, $sql1) ;
-
-                                                $newUser="INSERT INTO `roombook`(`Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`,`stat`,`nodays`) VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[nation]','$_POST[country]','$_POST[phone]','$_POST[troom]','$_POST[bed]','$_POST[nroom]','$_POST[meal]','$_POST[cin]','$_POST[cout]','$new',DATEDIFF('$_POST[cout]','$_POST[cin]'))";
+                                                $newUser="INSERT INTO `roombook`(`Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`,`stat`,`nodays`) VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[nation]','$_POST[country]','$_POST[phone]','$_POST[troom]','$_POST[bed]','$_POST[nroom]','$_POST[meal]','$_POST[cin]','$_POST[cout]','$new',datediff('$_POST[cout]','$_POST[cin]'))";
                                                 if (mysqli_query($con,$newUser))
                                                 {
                                                     echo "<script type='text/javascript'> alert('Your Booking application has been sent')</script>";
@@ -424,8 +392,8 @@ include('db.php')
                                             $fname = $_POST['first_name'] ; 
                                             $lname = $_POST['last_name'] ;
                                             $cardnum = $_POST['card_num'] ;
-                                            $exdate = $_POST['ext_date'] ;
-                                            $cvv = $_POST['cvv'] ; 
+                                            $exdate = $_POST['cin'] ;
+                                            $cvv = $_POST['cout'] ; 
                                             $price = $_POST['price'] ; 
 
                                             
@@ -473,14 +441,14 @@ include('db.php')
     </div>
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
-    
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
       <!-- Bootstrap Js -->
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
     <script src="assets/js/jquery.metisMenu.js"></script>
       <!-- Custom Js -->
     <!-- <script src="assets/js/custom-scripts.js"></script> -->
-    
     
    
 </body>
