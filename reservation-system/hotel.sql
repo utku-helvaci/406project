@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 18, 2023 at 04:41 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Host: localhost
+-- Generation Time: Jun 09, 2023 at 11:39 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `contact` (
   `email` text DEFAULT NULL,
   `cdate` date DEFAULT NULL,
   `approval` varchar(12) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -49,7 +49,7 @@ CREATE TABLE `login` (
   `fullname` tinytext DEFAULT '(NULL)',
   `emailaddress` tinytext DEFAULT '(NULL)',
   `datetime` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `login`
@@ -75,7 +75,7 @@ CREATE TABLE `newsletterlog` (
   `title` varchar(52) DEFAULT NULL,
   `subject` varchar(100) DEFAULT NULL,
   `news` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `newsletterlog`
@@ -106,7 +106,7 @@ CREATE TABLE `payment` (
   `meal` varchar(30) DEFAULT NULL,
   `btot` double(8,2) DEFAULT NULL,
   `noofdays` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `payment`
@@ -131,7 +131,7 @@ CREATE TABLE `payment_list` (
   `expire_date` date DEFAULT NULL,
   `cvv` text DEFAULT NULL,
   `price` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `payment_list`
@@ -161,39 +161,36 @@ CREATE TABLE `room` (
   `type_s` text DEFAULT NULL,
   `price` text DEFAULT NULL,
   `free_number` decimal(10,0) DEFAULT 2
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `room`
 --
 
 INSERT INTO `room` (`id`, `type`, `bedding`, `place`, `cusid`, `img_url`, `img_url1`, `img_url2`, `comment`, `type_s`, `price`, `free_number`) VALUES
-(1, 'Guest House', 'Single', 'Full', NULL, 'images/g7.jpg', NULL, NULL, NULL, 'guest', NULL, '0'),
-(2, 'Guest House', 'Double', 'Free', NULL, 'images/g8.jpg', NULL, NULL, 'guest1', 'guest', NULL, '2'),
-(3, 'Guest House', 'Triple', 'Free', NULL, 'images/g9.jpg', NULL, NULL, 'guest2', 'guest', NULL, '2'),
-(4, 'Guest House', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'guest', NULL, '2'),
-(5, 'Hotels', 'Single', 'Free', NULL, 'images/image1.jpg', NULL, NULL, NULL, 'hotel', NULL, '2'),
-(6, 'Hotels', 'Double', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL, '2'),
-(7, 'Hotels', 'Triple', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL, '2'),
-(8, 'Hotels', 'Quad', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL, '2'),
-(9, 'Apartments', 'Single', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, '2'),
-(10, 'Apartments', 'Double', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, '2'),
-(11, 'Apartments', 'Triple', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, '2'),
-(12, 'Apartments', 'Quad', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, '2'),
-(13, 'Dorms', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, '2'),
-(14, 'Dorms', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, '2'),
-(15, 'Dorms', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, '2'),
-(16, 'Dorms', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, '2'),
-(17, 'Available Roommates', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'roommate', NULL, '2'),
-(18, 'Available Roommates', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'roommate', NULL, '2'),
-(19, 'Available Roommates', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'this is test!', 'roommate', NULL, '2'),
-(20, 'Available Roommates', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'this is test', 'roommate', NULL, '2'),
-(21, 'Shared houses', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'shared', NULL, '2'),
-(22, 'Shared houses', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'You can incorporate this function, so that the user can choose where they want to reserve,\r\nGuest house (like airbnb), Hotels, apartments, dorms, roommates and family house or\r\nhotel or a shared house with a roommate.\r\nThe hotels section can have many different hotels in the area (prices in Turkish lira or\r\nUSD) the same for dorms and others. I will share the different pictures for each and their\r\nlocation.\r\nThe design can be as the one for the website you have provided, it was good.\r\nThe categories can be shown on the homepage or can be in the menu on the homepage.\r\nWhen any category is clicked (for example if the user clicks on apartments) it should take\r\nthem to a page where there is a list of different apartments (if you like you can add a\r\nbonus where the user can filter by the number of rooms or price)', 'shared', NULL, '2'),
-(23, 'Shared houses', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'shared', NULL, '2'),
-(29, 'Shared houses', 'Quad', 'Free', NULL, 'images/202305181684373938.jpg', NULL, NULL, 'fdsafdsafdsafdsafdsafdsfdsafdsafdsafdsafdsa\r\nThis is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.This is test comment.', 'shared', NULL, '2'),
-(30, 'Guest House', 'Single', 'Free', NULL, 'images/202305181684373938.jpg', NULL, NULL, 'fdsfdsfds', 'guest', NULL, '2'),
-(31, 'Guest House', 'Single', 'Free', NULL, 'images/202305181684373938.jpg', NULL, NULL, 'fdsafdsa', 'guest', NULL, '2');
+(1, 'Guest House', 'Single', 'Full', NULL, 'images/g7.jpg', NULL, NULL, NULL, 'guest', NULL, 2),
+(2, 'Guest House', 'Double', 'Free', NULL, 'images/g8.jpg', NULL, NULL, 'guest1', 'guest', NULL, 2),
+(3, 'Guest House', 'Triple', 'Free', NULL, 'images/guesthouse2.jpg', NULL, NULL, 'guest2', 'guest', NULL, 2),
+(4, 'Guest House', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'guest', NULL, 2),
+(5, 'Hotels', 'Single', 'Free', NULL, 'images/hotel2.jpg', NULL, NULL, NULL, 'hotel', NULL, 2),
+(6, 'Hotels', 'Double', 'Free', NULL, 'images/Alp_Pasa_Boutique_Hotel.jpg', NULL, NULL, NULL, 'hotel', NULL, 2),
+(7, 'Hotels', 'Triple', 'Free', NULL, 'images/Pera_Palace_Exterior.jpg', NULL, NULL, NULL, 'hotel', NULL, 2),
+(8, 'Hotels', 'Quad', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL, 2),
+(9, 'Apartments', 'Single', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
+(10, 'Apartments', 'Double', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
+(11, 'Apartments', 'Triple', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
+(12, 'Apartments', 'Quad', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
+(13, 'Dorms', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
+(14, 'Dorms', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
+(15, 'Dorms', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
+(16, 'Dorms', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
+(17, 'Available Roommates', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'roommate', NULL, 2),
+(18, 'Available Roommates', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'roommate', NULL, 2),
+(19, 'Available Roommates', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'this is test!', 'roommate', NULL, 2),
+(20, 'Available Roommates', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'this is test', 'roommate', NULL, 2),
+(21, 'Shared houses', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'shared', NULL, 2),
+(22, 'Shared houses', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'You can incorporate this function, so that the user can choose where they want to reserve,\r\nGuest house (like airbnb), Hotels, apartments, dorms, roommates and family house or\r\nhotel or a shared house with a roommate.\r\nThe hotels section can have many different hotels in the area (prices in Turkish lira or\r\nUSD) the same for dorms and others. I will share the different pictures for each and their\r\nlocation.\r\nThe design can be as the one for the website you have provided, it was good.\r\nThe categories can be shown on the homepage or can be in the menu on the homepage.\r\nWhen any category is clicked (for example if the user clicks on apartments) it should take\r\nthem to a page where there is a list of different apartments (if you like you can add a\r\nbonus where the user can filter by the number of rooms or price)', 'shared', NULL, 2),
+(23, 'Shared houses', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'shared', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -218,7 +215,7 @@ CREATE TABLE `roombook` (
   `cout` date DEFAULT NULL,
   `stat` varchar(15) DEFAULT NULL,
   `nodays` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `roombook`
