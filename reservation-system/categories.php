@@ -166,7 +166,7 @@ include('db.php');
 <!-- //gallery -->
 <!-- /contact -->
 			<div class="copy">
-		        <p>© 2023 Reser<span>vation . All Rights Reserved | Design by <a href="index.php">Henry<span> Pollanen</a> </p>
+		        <p>© 2023 Reser<span>vation . All Rights Reserved | Design by <a href="index.php">Elmo, Utku<span> and Hamdalla</a> </p>
 		    </div>
 <!--/footer -->
 <!-- js -->
