@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 09, 2023 at 11:39 PM
+-- Generation Time: Jun 11, 2023 at 12:46 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -176,21 +176,21 @@ INSERT INTO `room` (`id`, `type`, `bedding`, `place`, `cusid`, `img_url`, `img_u
 (6, 'Hotels', 'Double', 'Free', NULL, 'images/Alp_Pasa_Boutique_Hotel.jpg', NULL, NULL, NULL, 'hotel', NULL, 2),
 (7, 'Hotels', 'Triple', 'Free', NULL, 'images/Pera_Palace_Exterior.jpg', NULL, NULL, NULL, 'hotel', NULL, 2),
 (8, 'Hotels', 'Quad', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL, 2),
-(9, 'Apartments', 'Single', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
-(10, 'Apartments', 'Double', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
-(11, 'Apartments', 'Triple', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
-(12, 'Apartments', 'Quad', 'Free', NULL, 'images/g9.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
-(13, 'Dorms', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
-(14, 'Dorms', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
-(15, 'Dorms', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
-(16, 'Dorms', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
-(17, 'Available Roommates', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'roommate', NULL, 2),
-(18, 'Available Roommates', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'roommate', NULL, 2),
-(19, 'Available Roommates', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'this is test!', 'roommate', NULL, 2),
-(20, 'Available Roommates', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'this is test', 'roommate', NULL, 2),
-(21, 'Shared houses', 'Single', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'shared', NULL, 2),
-(22, 'Shared houses', 'Double', 'Free', NULL, 'images/g10.jpg', NULL, NULL, 'You can incorporate this function, so that the user can choose where they want to reserve,\r\nGuest house (like airbnb), Hotels, apartments, dorms, roommates and family house or\r\nhotel or a shared house with a roommate.\r\nThe hotels section can have many different hotels in the area (prices in Turkish lira or\r\nUSD) the same for dorms and others. I will share the different pictures for each and their\r\nlocation.\r\nThe design can be as the one for the website you have provided, it was good.\r\nThe categories can be shown on the homepage or can be in the menu on the homepage.\r\nWhen any category is clicked (for example if the user clicks on apartments) it should take\r\nthem to a page where there is a list of different apartments (if you like you can add a\r\nbonus where the user can filter by the number of rooms or price)', 'shared', NULL, 2),
-(23, 'Shared houses', 'Triple', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'shared', NULL, 2);
+(9, 'Apartments', 'Single', 'Free', NULL, 'images/apart1.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
+(10, 'Apartments', 'Double', 'Free', NULL, 'images/apart2.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
+(11, 'Apartments', 'Triple', 'Free', NULL, 'images/apart3.webp', NULL, NULL, NULL, 'apart', NULL, 2),
+(12, 'Apartments', 'Quad', 'Free', NULL, 'images/apart4.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
+(13, 'Dorms', 'Single', 'Free', NULL, 'images/dorm2.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
+(14, 'Dorms', 'Double', 'Free', NULL, 'images/dorm3.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
+(15, 'Dorms', 'Triple', 'Free', NULL, 'images/dorm4.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
+(16, 'Dorms', 'Quad', 'Free', NULL, 'images/dorm1.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
+(17, 'Available Roommates', 'Single', 'Free', NULL, 'images/roommate1.jpg.jpg', NULL, NULL, NULL, 'roommate', NULL, 2),
+(18, 'Available Roommates', 'Double', 'Free', NULL, 'images/roommate2.jpg.jpg', NULL, NULL, NULL, 'roommate', NULL, 2),
+(19, 'Available Roommates', 'Triple', 'Free', NULL, 'images/roommate3.jpg.jpg', NULL, NULL, 'this is test!', 'roommate', NULL, 2),
+(20, 'Available Roommates', 'Quad', 'Free', NULL, 'images/roommate4.webp.jpg', NULL, NULL, 'this is test', 'roommate', NULL, 2),
+(21, 'Shared houses', 'Single', 'Free', NULL, 'images/shared1.jpg', NULL, NULL, NULL, 'shared', NULL, 2),
+(22, 'Shared houses', 'Double', 'Free', NULL, 'images/shared4.jpg', NULL, NULL, 'You can incorporate this function, so that the user can choose where they want to reserve,\r\nGuest house (like airbnb), Hotels, apartments, dorms, roommates and family house or\r\nhotel or a shared house with a roommate.\r\nThe hotels section can have many different hotels in the area (prices in Turkish lira or\r\nUSD) the same for dorms and others. I will share the different pictures for each and their\r\nlocation.\r\nThe design can be as the one for the website you have provided, it was good.\r\nThe categories can be shown on the homepage or can be in the menu on the homepage.\r\nWhen any category is clicked (for example if the user clicks on apartments) it should take\r\nthem to a page where there is a list of different apartments (if you like you can add a\r\nbonus where the user can filter by the number of rooms or price)', 'shared', NULL, 2),
+(23, 'Shared houses', 'Triple', 'Free', NULL, 'images/shared3.jpg', NULL, NULL, NULL, 'shared', NULL, 2);
 
 -- --------------------------------------------------------
 
