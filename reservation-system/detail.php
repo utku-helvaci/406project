@@ -140,7 +140,7 @@ include('db.php');
 					</a>
 					</div>
 					<div class="col-md-8 gallery-grid gallery1" >
-						<h2><b><span style="font-family: Arial, Helvetica"><?php echo $comment ; ?></span></b></h2>
+						<h3><b><span style="font-family: Arial, Helvetica"><?php echo $comment ; ?></span></b></h3>
 						<div class="col-md-12">
 							<div class="text-center price-selet">
 								<a href="admin/reservation.php" >Reserve Now</a>
