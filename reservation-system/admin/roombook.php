@@ -248,10 +248,10 @@ session_start();
 														<label>Select the Conformation</label>
 														<select name="conf"class="form-control">
 															<option value selected>	</option>
-															<option value="Conform">Conform</option>
+															<option value="Confirmed">Confirmed</option>
 														</select>
 										 </div>
-							<input type="submit" name="co" value="Conform" class="btn btn-success">
+							<input type="submit" name="co" value="Confirmed" class="btn btn-success">
 							
 							</form>
                         </div>
@@ -505,7 +505,7 @@ if(isset($_POST['co']))
 {	
 	$st = $_POST['conf'];	 
 	
-	if($st=="Conform")
+	if($st=="Confirmed")
 	{
 		// $rid = $_COOKIE['rid'] ;
 		$urb = "UPDATE `roombook` SET `stat`='$st' WHERE id = '$rid'";
@@ -538,7 +538,7 @@ if(isset($_POST['co']))
 		
 		else if( mysqli_query($con,$urb))
 		{	
-			//echo "<script type='text/javascript'> alert('Guest Room booking is conform')</script>";
+			//echo "<script type='text/javascript'> alert('Guest Room booking is confirmed')</script>";
 			//echo "<script type='text/javascript'> window.location='home.php'</script>";
 			$type_of_room = 0;       
 			if($troom=="Guest Houses")
@@ -623,7 +623,7 @@ if(isset($_POST['co']))
 				$rpsql = "UPDATE `room` SET `place`='$notfree',`cusid`='$id' where bedding ='$bed' and type='$troom' ";
 				if(mysqli_query($con,$rpsql))
 				{
-					echo "<script type='text/javascript'> alert('Booking Conform...!')</script>";
+					echo "<script type='text/javascript'> alert('Booking Confirmed...!')</script>";
 					echo "<script type='text/javascript'> window.location='roombook.php'</script>";
 				}
 				

@@ -50,8 +50,8 @@ include('db.php');
 			</div>
 			<div class="contact-bnr-w3-agile">
 				<ul>
-					<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:admin@emailaddress.in">admin@emailaddress</a></li>
-					<li><i class="fa fa-phone" aria-hidden="true"></i>+00 0000000000</li>	
+					<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:utku.helvaci.tux@gmail.com.in">utku.helvaci.tux@gmail.com</a></li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i>+90 5338318223</li>	
 					<li class="s-bar">
 						<div class="search">
 							<input class="search_box" type="checkbox" id="search_box">

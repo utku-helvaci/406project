@@ -116,7 +116,7 @@ session_start();
 								$new = $row['stat'];
 								$cin = $row['cin'];
 								$id = $row['id'];
-								if($new=="Not Conform")
+								if($new=="Not Confirmed")
 								{
 									$c = $c + 1;
 									
@@ -181,7 +181,7 @@ session_start();
 									while($trow=mysqli_fetch_array($tre) )
 									{	
 										$co =$trow['stat']; 
-										if($co=="Not Conform")
+										if($co=="Not Confirmed")
 										{
 											echo"<tr>
 												<th>".$trow['id']."</th>
@@ -220,7 +220,7 @@ session_start();
 								while($row=mysqli_fetch_array($rre) )
 								{		
 										$br = $row['stat'];
-										if($br=="Conform")
+										if($br=="Confirmed")
 										{
 											$r = $r + 1;
 											
@@ -252,7 +252,7 @@ session_start();
 										while($mrow=mysqli_fetch_array($mre) )
 										{		
 											$br = $mrow['stat'];
-											if($br=="Conform")
+											if($br=="Confirmed")
 											{
 												$fid = $mrow['id'];
 												 

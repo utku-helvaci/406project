@@ -393,7 +393,7 @@ include('db.php')
 
                                             else
                                             {
-                                                $new ="Not Conform";
+                                                $new ="Not Confirmed";
                                                 $sql = "SELECT  room.free_number FROM room WHERE TYPE = '$_POST[troom]' AND bedding = '$_POST[bed]'" ;
                                                 $result = mysqli_query($con, $sql) ;
                                                 $data = mysqli_fetch_array($result, MYSQLI_NUM);
