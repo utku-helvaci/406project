@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 11, 2023 at 12:46 AM
+-- Generation Time: Jun 12, 2023 at 02:30 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -168,29 +168,29 @@ CREATE TABLE `room` (
 --
 
 INSERT INTO `room` (`id`, `type`, `bedding`, `place`, `cusid`, `img_url`, `img_url1`, `img_url2`, `comment`, `type_s`, `price`, `free_number`) VALUES
-(1, 'Guest House', 'Single', 'Full', NULL, 'images/g7.jpg', NULL, NULL, NULL, 'guest', NULL, 2),
-(2, 'Guest House', 'Double', 'Free', NULL, 'images/g8.jpg', NULL, NULL, 'guest1', 'guest', NULL, 2),
-(3, 'Guest House', 'Triple', 'Free', NULL, 'images/guesthouse2.jpg', NULL, NULL, 'guest2', 'guest', NULL, 2),
-(4, 'Guest House', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, NULL, 'guest', NULL, 2),
-(5, 'Hotels', 'Single', 'Free', NULL, 'images/hotel2.jpg', NULL, NULL, NULL, 'hotel', NULL, 2),
-(6, 'Hotels', 'Double', 'Free', NULL, 'images/Alp_Pasa_Boutique_Hotel.jpg', NULL, NULL, NULL, 'hotel', NULL, 2),
-(7, 'Hotels', 'Triple', 'Free', NULL, 'images/Pera_Palace_Exterior.jpg', NULL, NULL, NULL, 'hotel', NULL, 2),
-(8, 'Hotels', 'Quad', 'Free', NULL, 'images/image2.jpg', NULL, NULL, NULL, 'hotel', NULL, 2),
-(9, 'Apartments', 'Single', 'Free', NULL, 'images/apart1.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
-(10, 'Apartments', 'Double', 'Free', NULL, 'images/apart2.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
-(11, 'Apartments', 'Triple', 'Free', NULL, 'images/apart3.webp', NULL, NULL, NULL, 'apart', NULL, 2),
-(12, 'Apartments', 'Quad', 'Free', NULL, 'images/apart4.jpg', NULL, NULL, NULL, 'apart', NULL, 2),
-(13, 'Dorms', 'Single', 'Free', NULL, 'images/dorm2.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
-(14, 'Dorms', 'Double', 'Free', NULL, 'images/dorm3.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
-(15, 'Dorms', 'Triple', 'Free', NULL, 'images/dorm4.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
-(16, 'Dorms', 'Quad', 'Free', NULL, 'images/dorm1.jpg', NULL, NULL, NULL, 'dorms', NULL, 2),
-(17, 'Available Roommates', 'Single', 'Free', NULL, 'images/roommate1.jpg.jpg', NULL, NULL, NULL, 'roommate', NULL, 2),
-(18, 'Available Roommates', 'Double', 'Free', NULL, 'images/roommate2.jpg.jpg', NULL, NULL, NULL, 'roommate', NULL, 2),
-(19, 'Available Roommates', 'Triple', 'Free', NULL, 'images/roommate3.jpg.jpg', NULL, NULL, 'this is test!', 'roommate', NULL, 2),
-(20, 'Available Roommates', 'Quad', 'Free', NULL, 'images/roommate4.webp.jpg', NULL, NULL, 'this is test', 'roommate', NULL, 2),
-(21, 'Shared houses', 'Single', 'Free', NULL, 'images/shared1.jpg', NULL, NULL, NULL, 'shared', NULL, 2),
-(22, 'Shared houses', 'Double', 'Free', NULL, 'images/shared4.jpg', NULL, NULL, 'You can incorporate this function, so that the user can choose where they want to reserve,\r\nGuest house (like airbnb), Hotels, apartments, dorms, roommates and family house or\r\nhotel or a shared house with a roommate.\r\nThe hotels section can have many different hotels in the area (prices in Turkish lira or\r\nUSD) the same for dorms and others. I will share the different pictures for each and their\r\nlocation.\r\nThe design can be as the one for the website you have provided, it was good.\r\nThe categories can be shown on the homepage or can be in the menu on the homepage.\r\nWhen any category is clicked (for example if the user clicks on apartments) it should take\r\nthem to a page where there is a list of different apartments (if you like you can add a\r\nbonus where the user can filter by the number of rooms or price)', 'shared', NULL, 2),
-(23, 'Shared houses', 'Triple', 'Free', NULL, 'images/shared3.jpg', NULL, NULL, NULL, 'shared', NULL, 2);
+(1, 'Guest House', 'Single', 'Full', NULL, 'images/g7.jpg', NULL, NULL, '1+0 room with kitchen. extra a sheets provided', 'guest', NULL, 2),
+(2, 'Guest House', 'Double', 'Free', NULL, 'images/g8.jpg', NULL, NULL, '1+1 room with kitchen. extra a sheets provided', 'guest', NULL, 2),
+(3, 'Guest House', 'Triple', 'Free', NULL, 'images/guesthouse2.jpg', NULL, NULL, '1+0 15m squared room with kitchen. extra a sheets provided', 'guest', NULL, 2),
+(4, 'Guest House', 'Quad', 'Free', NULL, 'images/g10.jpg', NULL, NULL, '1+0 room with kitchen. extra a sheets provided', 'guest', NULL, 2),
+(5, 'Hotels', 'Single', 'Free', NULL, 'images/hotel2.jpg', NULL, NULL, 'Near Galapsides. icludes swimming pool. free buffet', 'hotel', NULL, 2),
+(6, 'Hotels', 'Double', 'Free', NULL, 'images/Alp_Pasa_Boutique_Hotel.jpg', NULL, NULL, 'Boutique hotel. Has free buffet. Boutique garden with great view, tree houses', 'hotel', NULL, 2),
+(7, 'Hotels', 'Triple', 'Free', NULL, 'images/Pera_Palace_Exterior.jpg', NULL, NULL, 'luxury lobbies with quality unlimited buffet', 'hotel', NULL, 2),
+(8, 'Hotels', 'Quad', 'Free', NULL, 'images/image2.jpg', NULL, NULL, 'Located near galapsides. Infinity pool that merges with the sea. Unlimited pool by buffet', 'hotel', NULL, 2),
+(9, 'Apartments', 'Single', 'Free', NULL, 'images/apart1.jpg', NULL, NULL, '1+1. american kitchen. 35m squared. near city mall', 'apart', NULL, 2),
+(10, 'Apartments', 'Double', 'Free', NULL, 'images/apart2.jpg', NULL, NULL, '1+0. near city mall. 2+1. 40m squared. apartment has gym and pool', 'apart', NULL, 2),
+(11, 'Apartments', 'Triple', 'Free', NULL, 'images/apart3.webp', NULL, NULL, '2+1. 40m squared. near galapsides. apartment has gym and pool', 'apart', NULL, 2),
+(12, 'Apartments', 'Quad', 'Free', NULL, 'images/apart4.jpg', NULL, NULL, '2+1. 40m squared. near galapsides. apartment has gym and pool', 'apart', NULL, 2),
+(13, 'Dorms', 'Single', 'Free', NULL, 'images/dorm2.jpg', NULL, NULL, 'bathroom included. personal wardrobe. toaster and boiler provided. Kitchen is shared', 'dorms', NULL, 2),
+(14, 'Dorms', 'Double', 'Free', NULL, 'images/dorm3.jpg', NULL, NULL, '15m squared. inside campus. bathroom shared with neighboring room', 'dorms', NULL, 2),
+(15, 'Dorms', 'Triple', 'Free', NULL, 'images/dorm4.jpg', NULL, NULL, '15m squared. includes gas heating. bathroom shared with 2 others neighboring rooms', 'dorms', NULL, 2),
+(16, 'Dorms', 'Quad', 'Free', NULL, 'images/dorm1.jpg', NULL, NULL, '25m squared. 1+1. king sized beds. includes its own kitchen', 'dorms', NULL, 2),
+(17, 'Available Roommates', 'Single', 'Free', NULL, 'images/roommate1.jpg.jpg', NULL, NULL, 'smokes. 1+0 15m squared dorm', 'roommate', NULL, 2),
+(18, 'Available Roommates', 'Double', 'Free', NULL, 'images/roommate2.jpg.jpg', NULL, NULL, 'doesn\'t smoke. 1+1 25m squared dorm', 'roommate', NULL, 2),
+(19, 'Available Roommates', 'Triple', 'Free', NULL, 'images/roommate3.jpg.jpg', NULL, NULL, 'doesn\'t smoke. 2+1 dorm', 'roommate', NULL, 2),
+(20, 'Available Roommates', 'Quad', 'Free', NULL, 'images/roommate4.webp.jpg', NULL, NULL, 'smokes. 1+1 15m squared dorm', 'roommate', NULL, 2),
+(21, 'Shared houses', 'Single', 'Free', NULL, 'images/shared1.jpg', NULL, NULL, '15m squared room shared with 7 people. Kitchen not included', 'shared', NULL, 2),
+(22, 'Shared houses', 'Double', 'Free', NULL, 'images/shared4.jpg', NULL, NULL, '25m squared room shared with 7 people. Kitchen included', 'shared', NULL, 2),
+(23, 'Shared houses', 'Triple', 'Free', NULL, 'images/shared3.jpg', NULL, NULL, '15m squared romm shared with 6 people. Kitchen included', 'shared', NULL, 2);
 
 -- --------------------------------------------------------
 
