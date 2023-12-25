@@ -135,7 +135,8 @@ session_start();
 				<br>
 				<br>
 				<br>
-				<br><div id="chart"></div>
+				<br><div class="col-md-12">
+				<div id="chart" ></div>
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">

@@ -39,13 +39,14 @@ include('db.php');
 <!--//fonts-->
 </head>
 <body>
+
 <!-- header -->
 <div class="banner-top">
 			<div class="social-bnr-agileits">
 				<ul class="social-icons3">
 						<li><a href="https://www.facebook.com/" class="fa fa-facebook icon-border facebook"> </a></li>
 						<li><a href="https://twitter.com/" class="fa fa-twitter icon-border twitter"> </a></li>
-					<li><a href="https://plus.google.com/u/0/" class="fa fa-google-plus icon-border googleplus"> </a></li> 
+					<li><a href="https://plus.google.com/u/0/" class="fa fa-google-plus icon-border googleplus"> </a></li>
 				</ul>
 			</div>
 			<div class="contact-bnr-w3-agile">
@@ -58,7 +59,7 @@ include('db.php');
 							<label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
 							<div class="search_form">
 								<form action="#" method="post" style="display:inline-flex;">
-									<input type="search" class="search_txt" id="search_txt" name="Search" placeholder=" " required=" " />
+									<input type="search" class="search_txt" id="search_txt" name="Search" placeholder=" " required=" ">
 									<input type="submit" class="search_btn" id="search_btn" value="Search">
 								</form>
 							</div>
@@ -70,7 +71,7 @@ include('db.php');
 		</div>
 	<div class="w3_navigation">
 		<div class="container">
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default" style="z-index: 1;">
 				<div class="navbar-header navbar-left">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 						<span class="sr-only">Toggle navigation</span>
@@ -78,7 +79,10 @@ include('db.php');
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<h1><a class="navbar-brand" href="index.php">Reser<span>vation</span><p class="logo_w3l_agile_caption">&nbsp;&nbsp;reservation service </p></a></h1>
+					<h1>
+					<a class=".bluebirdlogo" href="index.php" style="color: #e68217;">Reser<span>
+					<img src="images/portal.svg" alt=" " class="centerbgimg" aria-hidden="true">
+					</span><span>vation²</span><p class="logo_w3l_agile_caption">&nbsp;&nbsp;reservation service </p></a></h1>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
@@ -87,7 +91,6 @@ include('db.php');
 							<li class="menu__item menu__item--current"><a href="" class="menu__link">Home</a></li>
 							<li class="menu__item"><a href="#about" class="menu__link scroll">About</a></li>
 							<li class="menu__item"><a href="#gallery" class="menu__link scroll">Categories</a></li>
-							<li class="menu__item"><a href="#rooms" class="menu__link scroll">Rooms</a></li>
 							<li class="menu__item"><a href="#contact" class="menu__link scroll">Contact Us</a></li>
 							<li class="menu__item"><a href="logout.php" class="menu__link scroll">Logout</a></li>
 						</ul>
@@ -99,213 +102,10 @@ include('db.php');
 	</div>
 <!-- //header -->
 		<!-- banner -->
-	<div id="home" class="w3ls-banner">
-		<!-- banner-text -->
-		<div class="slider">
-			<div class="callbacks_container">
-				<ul class="rslides callbacks callbacks1" id="slider4">
-					<li>
-						<div class="w3layouts-banner-top">
-
-							<div class="container">
-								<div class="agileits-banner-info">
-								<h4>Reser<span>vation</h4>
-									<h3>We know what you love</h3>
-										<p>Welcome to our hotels</p>
-									<div class="agileits_w3layouts_more menu__item">
-										<a href="#" class="menu__link" data-toggle="modal" data-target="#myModal">Learn More</a>
-									</div>
-								</div>	
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="w3layouts-banner-top w3layouts-banner-top1">
-							<div class="container">
-								<div class="agileits-banner-info">
-								<h4>Reser<span>vation</h4>
-									<h3>Stay with friends & families</h3>
-										<p>Come & enjoy precious moment with us</p>
-									<div class="agileits_w3layouts_more menu__item">
-										<a href="#" class="menu__link" data-toggle="modal" data-target="#myModal">Learn More</a>
-									</div>
-								</div>	
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="w3layouts-banner-top w3layouts-banner-top2">
-							<div class="container">
-								<div class="agileits-banner-info">
-								<h4>Reser<span>vation</h4>
-								<h3>want luxurious vacation?</h3>
-									<p>Get accommodation today</p>
-									<div class="agileits_w3layouts_more menu__item">
-										<a href="#" class="menu__link" data-toggle="modal" data-target="#myModal">Learn More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
-			<!--banner Slider starts Here-->
-		</div>
-		    <div class="thim-click-to-bottom">
-				<a href="#about" class="scroll">
-					<i class="fa fa-long-arrow-down" aria-hidden="true"></i>
-				</a>
-			</div>
-	</div>	
-	<!-- //banner --> 
-<!--//Header-->
-<!-- //Modal1 -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-						<!-- Modal1 -->
-							<div class="modal-dialog">
-							<!-- Modal content-->
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4>Reser<span>vation</span></h4>
-										<img src="images/1.jpg" alt=" " class="img-responsive">
-										<h5>We know what you love</h5>
-										<p>Reservation System is the perfect embodiment of world-class service and hospitality.
-											With its well-appointed rooms and modern comforts, the hotel has played host to the heads of state, 
-											celebrities and high profile businessmen from across the world.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-<!-- //Modal1 -->
-<div id="availability-agileits">
-<div class="col-md-12 book-form-left-w3layouts">
-	<a href="admin/reservation.php"><h2>ROOM RESERVATION</h2></a>
-</div>
-
-			<div class="clearfix"> </div>
-</div>
-<!-- banner-bottom -->
-	<div class="banner-bottom">
-		<div class="container">	
-			<div class="agileits_banner_bottom">
-				<h3><span>Experience a good stay, enjoy fantastic offers</span> Find our friendly welcoming reception</h3>
-			</div>
-			<div class="w3ls_banner_bottom_grids">
-				<ul class="cbp-ig-grid">
-					<li>
-						<div class="w3_grid_effect">
-							<span class="cbp-ig-icon w3_road"></span>
-							<h4 class="cbp-ig-title">MASTER BEDROOMS</h4>
-							<span class="cbp-ig-category">Reser<span>vation</span>
-						</div>
-					</li>
-					<li>
-						<div class="w3_grid_effect">
-							<span class="cbp-ig-icon w3_cube"></span>
-							<h4 class="cbp-ig-title">SEA VIEW <br /> BALCONY</h4>
-							<span class="cbp-ig-category">Reser<span>vation</span>
-						</div>
-					</li>
-					<li>
-						<div class="w3_grid_effect">
-							<span class="cbp-ig-icon w3_users"></span>
-							<h4 class="cbp-ig-title">LARGE  <br />    CAFE</h4>
-							<span class="cbp-ig-category">Reser<span>vation</span>
-						</div>
-					</li>
-					<li>
-						<div class="w3_grid_effect">
-							<span class="cbp-ig-icon w3_ticket"></span>
-							<h4 class="cbp-ig-title">WIFI  <br />  COVERAGE</h4>
-							<span class="cbp-ig-category">Reser<span>vation</span>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-<!-- //banner-bottom -->
-<!-- /about -->
- 	<div class="about-wthree" id="about">
-		  <div class="container">
-				   <div class="ab-w3l-spa">
-                            <h3 class="title-w3-agileits title-black-wthree">About Us</h3> 
-						   <p class="about-para-w3ls">Reservation System is the perfect embodiment of world-class service and hospitality. 
-							With its well-appointed rooms and modern comforts, the hotel has played host to the heads of state, celebrities
-							 and high profile businessmen from across the world. Reservation System, a city landmark in Jalgaon, is just
-							  60 kms from the finest surviving UNESCO world heritage site Ajanta Caves. Whether you are in Jalgaon for a business
-							   trip or visiting elaborated architectural carving in Ajanta, Reservation System offers superbly appointed rooms
-							    with classical decor and the ambience make these rooms an ideal choice for the discerning business traveler. 
-								The Lobby’s Refreshing Décor of Fountain Contrasting Strikingly with Capsule like Glass Elevator, Surrounding
-								 the Lobby There Is an Excellent Multi cuisine Restaurant ‘Royal Cook’.</p>
-						   <img src="images/all/IMG_20210815_205518.jpg" class="img-responsive" alt="Hair Salon">
-						   <hr>
-						   <p class="about-para-w3ls" > All rooms include the superior 
-								 amenities with specific focus for comfort & convenience. For guests’ convenience & entertainment, we have 
-								 added a wireless broadband internet access facility throughout the premises and also additional TATA SKY HD 
-								 channels linked to all guest rooms & suites.</p>
-		          </div>
-		   	<div class="clearfix"> </div>
-    </div>
-</div>
- 	<!-- //about -->
-<!--sevices-->
-<div class="advantages">
-	<div class="container">
-		<div class="advantages-main">
-				<h3 class="title-w3-agileits">Our Services</h3>
-		   	<div class="advantage-bottom">
-				<div class="col-md-6 advantage-grid left-w3ls wow bounceInLeft" data-wow-delay="0.3s">
-			 		<div class="advantage-block ">
-						<i class="fa fa-credit-card" aria-hidden="true"></i>
-			 			<h4>Stay First, Pay After! </h4>
-			 			<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates.</p>
-						<p><i class="fa fa-check" aria-hidden="true"></i>Decorated room, proper air conditioned</p>
-						<p><i class="fa fa-check" aria-hidden="true"></i>Private balcony</p>
-			 		</div>
-				</div>
-			 	<div class="col-md-6 advantage-grid right-w3ls wow zoomIn" data-wow-delay="0.3s">
-			 		<div class="advantage-block">
-						<i class="fa fa-clock-o" aria-hidden="true"></i>
-			 			<h4>24 Hour Restaurant</h4>
-			 			<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates.</p>
-						<p><i class="fa fa-check" aria-hidden="true"></i>24 hours room service</p>
-						<p><i class="fa fa-check" aria-hidden="true"></i>24-hour Concierge service</p>
-			 		</div>
-			 	</div>
-				<div class="col-md-6 advantage-grid right-w3ls wow zoomIn" data-wow-delay="0.3s">
-			 		<div class="advantage-block">
-					 <i class="fa fa-television" aria-hidden="true"></i>
-			 			<h4>Entertainment</h4>
-			 			<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates.</p>
-						<p><i class="fa fa-check" aria-hidden="true"></i>Internet Access throughout the Premises via Wi-Fi</p>
-						<p><i class="fa fa-check" aria-hidden="true"></i>Tata Sky In Rooms</p>
-						<p><i class="fa fa-check" aria-hidden="true"></i>Tata Sky In Rooms</p>
-			 		</div>
-			 	</div>
-				 <div class="col-md-6 advantage-grid right-w3ls wow zoomIn" data-wow-delay="0.3s">
-			 		<div class="advantage-block">
-					 <i class="fa fa-car" aria-hidden="true"></i>
-			 			<h4>Ancillary</h4>
-			 			<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates.</p>
-						<p><i class="fa fa-check" aria-hidden="true"></i>Driver Bed, Atrium Lobby, Capsule Elevator</p>
-						<p><i class="fa fa-check" aria-hidden="true"></i>Ample Car Parking Space, Special Conference Hall</p>
-						<p><i class="fa fa-check" aria-hidden="true"></i>All Major Credit Cards Accepted,</p>
-			 		</div>
-			 	</div>
-			<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-</div>
-<!--//sevices-->
-
-<!-- Gallery -->
+<!-- stole the precious -->
 <section class="portfolio-w3ls" id="gallery">
-		 <h3 class="title-w3-agileits title-black-wthree">Our Categories</h3>
-				
+		 <h3 class="title-w3-agileits title-black-wthree">Rooms Nearby</h3>
+
 				<div class="col-md-4 gallery-grid gallery1">
 					<a href="categories.php?cate=guest" class=""><img src="images/g1.jpg" class="img-responsive" alt="/">
 						<div class="textbox">
@@ -356,135 +156,95 @@ include('db.php');
 				</div>
 				<div class="clearfix"> </div>
 </section>
-<!-- //gallery -->
-	 <!-- rooms & rates -->
-      <div class="plans-section" id="rooms">
-				 <div class="container">
-				 <h3 class="title-w3-agileits title-black-wthree">Rooms And Rates</h3>
-						<div class="priceing-table-main">
-				 <div class="col-md-3 price-grid">
-					<div class="price-block agile">
-						<div class="price-gd-top">
-						<a href="setting.php">
-							<img src="images/r1.jpg" alt=" " class="img-responsive" />
-							<h4>Royal Room</h4>
-						</a>
-						</div>
-						<div class="price-gd-bottom">
-							   <div class="price-list">
-									<ul>
-											<li><i class="fa fa-star" aria-hidden="true"></i></li>
-											<li><i class="fa fa-star" aria-hidden="true"></i></li>
-											<li><i class="fa fa-star" aria-hidden="true"></i></li>
-											<li><i class="fa fa-star" aria-hidden="true"></i></li>
-											<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-									
-								     </ul>
-							</div>
-							<div class="price-selet">	
-								<h3><span>₺</span> 2,448</h3>
-								<a href="admin/reservation.php" >Book Now</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 price-grid ">
-					<div class="price-block agile">
-						<div class="price-gd-top">
-						<a href="setting.php">	
-							<img src="images/r2.jpg" alt=" " class="img-responsive" />
-							<h4>Club Royal</h4>
-						</a>
-						</div>
-						<div class="price-gd-bottom">
-							<div class="price-list">
-									<ul>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-								</ul>
-							</div>
-							<div class="price-selet">
-								<h3><span>₺</span> 1,929</h3>
-								<a href="admin/reservation.php" >Book Now</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 price-grid lost">
-					<div class="price-block agile">
-						<div class="price-gd-top">
-						<a href="setting.php">
-							<img src="images/r3.jpg" alt=" " class="img-responsive" />
-							<h4>Classic Suite</h4>
-						</a>
-						</div>
-						<div class="price-gd-bottom">
-							<div class="price-list">
-								<ul>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-								</ul>
-							</div>
-							<div class="price-selet">
-								<h3><span>₺</span> 1,809</h3>
-								<a href="admin/reservation.php" >Book Now</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 price-grid wthree lost">
-					<div class="price-block agile">
-						<div class="price-gd-top ">
-						<a href="setting.php">
-							<img src="images/r4.jpg" alt=" " class="img-responsive" />
-							<h4>Single Suite</h4>
-						</a>
-						</div>
-						<div class="price-gd-bottom">
-							<div class="price-list">
-								<ul>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-								</ul>
-							</div>
-							<div class="price-selet">
-								<h3><span>₺</span> 1,589</h3>
-								<a href="admin/reservation.php" >Book Now</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-	 <!--// rooms & rates -->
-  <!-- visitors -->
-	<div class="w3l-visitors-agile" >
-		<div class="container">
-                 <h3 class="title-w3-agileits title-black-wthree">What other visitors experienced</h3> 
-		</div>
-		<div class="w3layouts_work_grids">
-			<section class="slider">
-				<div class="flexslider">
-					<ul class="slides">
-						<li>
-							<div class="w3layouts_work_grid_left">
-								<img src="images/5.jpg" alt=" " class="img-responsive" />
-								<div class="w3layouts_work_grid_left_pos">
-									<img src="images/c1.jpg" alt=" " class="img-responsive" />
+	<!-- //banner -->
+<!--//Header-->
+<!-- //Modal1 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+						<!-- Modal1 -->
+							<div class="modal-dialog">
+							<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">×</button>
+										<h4>Reser<span>vation</span></h4>
+										<img src="images/1.jpg" alt=" " class="img-responsive">
+										<h5>We know what you love</h5>
+										<p>Reservation System is the perfect embodiment of world-class service and hospitality.
+											With its well-appointed rooms and modern comforts, the hotel has played host to the heads of state,
+											celebrities and high profile businessmen from across the world.</p>
+									</div>
 								</div>
 							</div>
-							<div class="w3layouts_work_grid_right">
+						</div>
+<!-- //Modal1 -->
+<div id="availability-agileits">
+<div class="col-md-12 book-form-left-w3layouts">
+	<a href="admin/reservation.php"><h2>ROOM RESERVATION</h2></a>
+</div>
+
+			<div class="clearfix"> </div>
+</div>
+<!-- banner-bottom -->
+
+<!-- //banner-bottom -->
+<!-- /about -->
+ 	<div class="about-wthree" id="about">
+		  <div class="container">
+				   <div class="ab-w3l-spa">
+                            <h3 class="title-w3-agileits title-black-wthree">About Us</h3>
+						   <p class="about-para-w3ls">Reservation System is the perfect embodiment of world-class service and hospitality.
+							With its well-appointed rooms and modern comforts, the hotel has played host to the heads of state, celebrities
+							 and high profile businessmen from across the world. Reservation System, a city landmark in Jalgaon, is just
+							  60 kms from the finest surviving UNESCO world heritage site Ajanta Caves. Whether you are in Jalgaon for a business
+							   trip or visiting elaborated architectural carving in Ajanta, Reservation System offers superbly appointed rooms
+							    with classical decor and the ambience make these rooms an ideal choice for the discerning business traveler.
+								The Lobby’s Refreshing Décor of Fountain Contrasting Strikingly with Capsule like Glass Elevator, Surrounding
+								 the Lobby There Is an Excellent Multi cuisine Restaurant ‘Royal Cook’.</p>
+						   <img src="images/all/IMG_20210815_205518.jpg" class="img-responsive" alt="Hair Salon">
+						   <hr>
+						   <p class="about-para-w3ls"> All rooms include the superior
+								 amenities with specific focus for comfort &amp; convenience. For guests’ convenience &amp; entertainment, we have
+								 added a wireless broadband internet access facility throughout the premises and also additional TATA SKY HD
+								 channels linked to all guest rooms &amp; suites.</p>
+		          </div>
+		   	<div class="clearfix"> </div>
+    </div>
+</div>
+ 	<!-- //about -->
+<!--sevices-->
+
+<!--//sevices-->
+
+<!-- Gallery -->
+
+<!-- //gallery -->
+	 <!-- rooms & rates -->
+<!-- stolen p2 -->
+
+
+	 <!--// rooms & rates -->
+  <!-- visitors -->
+
+
+
+
+
+<section id="gallery">
+
+
+
+<!-- trial -->
+<li>
+
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="categories.php?cate=guest" class=""><img src="images/c1.jpg" class="img-responsive" alt="/">
+						<div class="textbox">
+						<h4>Guest  Houses</h4>
+							<p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
+						</div>
+				</a>
+				</div>
+</li></section><div class="w3layouts_work_grid_right">
 								<h4>
 								<i class="fa fa-star" aria-hidden="true"></i>
 								<i class="fa fa-star" aria-hidden="true"></i>
@@ -499,89 +259,169 @@ include('db.php');
 								<h5>ayesha wankhede</h5>
 								<p>Travel</p>
 							</div>
-							<div class="clearfix"> </div>
-						</li>
-						<li>
-							<div class="w3layouts_work_grid_left">
-								<img src="images/5.jpg" alt=" " class="img-responsive" />
-								<div class="w3layouts_work_grid_left_pos">
-									<img src="images/c2.jpg" alt=" " class="img-responsive" />
-								</div>
-							</div>
-							<div class="w3layouts_work_grid_right">
-								<h4>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								The stay was very pleasant
-								</h4>
-								<p>Nice hotel to stay, Good food quality and very clean and comfortable hotel. 
-									Little bit expensive and costlier.
-									One of the good quality hotel in Jalgaon.</p>
-								<h5>hasan demirci</h5>
-								<p>travel</p>
-							</div>
-							<div class="clearfix"> </div>
-						</li>
-						<li>
-							<div class="w3layouts_work_grid_left">
-								<img src="images/5.jpg" alt=" " class="img-responsive" />
-								<div class="w3layouts_work_grid_left_pos">
-									<img src="images/c3.jpg" alt=" " class="img-responsive" />
-								</div>
-							</div>
-							<div class="w3layouts_work_grid_right">
-								<h4>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								Rooms are neat and clean
-								</h4>
-								<p>Staff are friendly and well behaved. 
-									Basic toiletries and daily water bottles as 
-									provided in all hotels were missing.</p>
-								<h5>aditya chaudhari</h5>
-								<p>business</p>
-							</div>
-							<div class="clearfix"> </div>
-						</li>
-						<li>
-							<div class="w3layouts_work_grid_left">
-								<img src="images/5.jpg" alt=" " class="img-responsive" />
-								<div class="w3layouts_work_grid_left_pos">
-									<img src="images/c4.jpg" alt=" " class="img-responsive" />
-								</div>
-							</div>
-							<div class="w3layouts_work_grid_right">
-								<h4>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								Food also tasty
-								</h4>
-								<p>Hotel property is clean and  service is quite good,
-									yes restaurant food is also nice. location is convenient 
-									but quite far fro railway station.
-									good </p>
-								<h5>Jayesh Baviskar</h5>
-								<p>business</p>
-							</div>
-							<div class="clearfix"> </div>
-						</li>
-					</ul>
-				</div>
-			</section>
-		</div>	
+
+
+
+
+<!-- trial -->
+
+
+
+	<div class="w3l-visitors-agile">
+		<div class="container">
+                 <h3 class="title-w3-agileits title-black-wthree">What other visitors experienced</h3>
+		</div>
+
 	</div>
   <!-- visitors -->
 <!-- contact -->
-<section class="contact-w3ls" id="contact">
+
+<!-- CRIT -->
+
+
+
+<!-- CRIT -->
+
+
+
+
+
+<section class="contact-w3ls" id="contact" style="padding: 0;">
+	<iframe id="result" srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot; >
+
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+
+
+    <link rel=&quot;apple-touch-icon&quot; type=&quot;image/png&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png&quot; />
+
+    <meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;CodePen&quot;>
+
+    <link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico&quot; />
+
+    <link rel=&quot;mask-icon&quot; type=&quot;image/x-icon&quot; href=&quot;https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg&quot; color=&quot;#111&quot; />
+
+
+
+
+
+
+  <title>CodePen - CSS Background Effect</title>
+
+    <link rel=&quot;canonical&quot; href=&quot;https://codepen.io/osorina/pen/PQdMOO&quot;>
+
+
+
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: table;
+  width: 100%;
+  height: 100%;
+  background-color: #171717;
+  color: #000;
+  line-height: 1.6;
+  position: relative;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+.lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  margin: auto;
+  width: 90vw;
+}
+
+.line {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+.line::after {
+  content: &quot;&quot;;
+  display: block;
+  position: absolute;
+  height: 15vh;
+  width: 100%;
+  top: -50%;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+  -webkit-animation: drop 7s 0s infinite;
+          animation: drop 7s 0s infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+          animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+}
+.line:nth-child(1) {
+  margin-left: -25%;
+}
+.line:nth-child(1)::after {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+.line:nth-child(3) {
+  margin-left: 25%;
+}
+.line:nth-child(3)::after {
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
+}
+
+@-webkit-keyframes drop {
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
+@keyframes drop {
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+
+
+</head>
+
+<body translate=&quot;no&quot;>
+  <div class=&quot;lines&quot;>
+  <div class=&quot;line&quot;></div>
+  <div class=&quot;line&quot;></div>
+  <div class=&quot;line&quot;></div>
+</div>
+
+<section class=" contact-w3ls"="" style="position: absolute;z-index: 0;width: 100%;height: 100%;">
 	<div class="container">
 		<div class="col-lg-6 col-md-6 col-sm-6 contact-w3-agile2" data-aos="flip-left">
 			<div class="contact-agileits">
@@ -589,45 +429,31 @@ include('db.php');
 				<p class="contact-agile2">Sign Up For Our News Letters</p>
 				<form  method="post" name="sentMessage" id="contactForm" >
 					<div class="control-group form-group">
-                        
+
                             <label class="contact-p1">Full Name:</label>
                             <input type="text" class="form-control" name="name" id="name" required >
                             <p class="help-block"></p>
-                       
-                    </div>	
+
+                    </div>
                     <div class="control-group form-group">
-                        
+
                             <label class="contact-p1">Phone Number:</label>
                             <input type="tel" class="form-control" name="phone" id="phone" required >
 							<p class="help-block"></p>
-						
+
                     </div>
                     <div class="control-group form-group">
-                        
+
                             <label class="contact-p1">Email Address:</label>
                             <input type="email" class="form-control" name="email" id="email" required >
 							<p class="help-block"></p>
-						
+
                     </div>
-                    
-                    
-                    <input type="submit" name="sub" value="Send Now" class="btn btn-primary">	
+
+
+                    <input type="submit" name="sub" value="Send Now" class="btn btn-primary">
 				</form>
-				<?php
-				if(isset($_POST['sub']))
-				{
-					$name =$_POST['name'];
-					$phone = $_POST['phone'];
-					$email = $_POST['email'];
-					$approval = "Not Allowed";
-					$sql = "INSERT INTO `contact`(`fullname`, `phoneno`, `email`,`cdate`,`approval`) VALUES ('$name','$phone','$email',now(),'$approval')" ;
-
-					if(mysqli_query($con,$sql))
-					echo"OK";
-
-				}
-				?>
-			</div>
+							</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 contact-w3-agile1" data-aos="flip-right">
 			<h4>Connect With Us</h4>
@@ -638,34 +464,117 @@ include('db.php');
 				<ul class="social-icons3">
 								<li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
 								<li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
-								<li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li> 
+								<li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li>
 							</ul>
 			</div>
 			<div class="col-md-12" style="width: 100%; margin-top: 20px ;">
 				<form  enctype="text/plain"  method="post" name="sentMessage" id="contactForm" >
 					<div class="control-group form-group">
-                        
+
                         <label class="contact-p1"><p>Name:</p></label>
                         <input type="text" placeholder="Enter your Name" class="form-control" name="name" id="name" required >
                         <p class="help-block"></p>
-               
-                  </div>	
+
+                  </div>
                   <div class="control-group form-group">
-                    
+
                         <label class="contact-p1"><p>Email:</p></label>
                         <input type="email"  placeholder="Enter a valid email address" class="form-control" name="email" id="email" required >
 						<p class="help-block"></p>
-					
+
                   </div>
                   <div class="control-group form-group">
-                        
+
                         <label class="contact-p1"><p>How can we help?</p></label>
-                        <textarea type="tel"  class="form-control" name="phone" id="phone" required ></textarea> 
+                        <textarea type="tel"  class="form-control" name="phone" id="phone" required ></textarea>
 						<p class="help-block"></p>
-						
+
                   </div>
-                    
-                  <input type="button" onclick="sendEmail()"  name="sub" value="Send Now" class="btn btn-primary">	
+
+                  <input type="button" onclick="sendEmail()"  name="sub" value="Send Now" class="btn btn-primary">
+                    <!-- <a type="button" name="sub" class="btn btn-primary" id="cus_email_send">Send Now</a> -->
+				</form>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</section>
+
+
+</body>
+
+</html>
+" sandbox="allow-forms allow-modals allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-downloads allow-presentation" allow="accelerometer; camera; encrypted-media; display-capture; geolocation; gyroscope; microphone; midi; clipboard-read; clipboard-write; web-share" allowtransparency="true" allowpaymentrequest="true" allowfullscreen="true" class="result-iframe">
+      </iframe><div class="container" style="position: absolute;z-index: 1;left: 15%;padding-top: 1%;">
+		<div class="col-lg-6 col-md-6 col-sm-6 contact-w3-agile2" data-aos="flip-left">
+			<div class="contact-agileits">
+				<h4>Contact Us</h4>
+				<p class="contact-agile2">Sign Up For Our News Letters</p>
+				<form method="post" name="sentMessage" id="contactForm">
+					<div class="control-group form-group">
+
+                            <label class="contact-p1">Full Name:</label>
+                            <input type="text" class="form-control" name="name" id="name" required="">
+                            <p class="help-block"></p>
+
+                    </div>
+                    <div class="control-group form-group">
+
+                            <label class="contact-p1">Phone Number:</label>
+                            <input type="tel" class="form-control" name="phone" id="phone" required="">
+							<p class="help-block"></p>
+
+                    </div>
+                    <div class="control-group form-group">
+
+                            <label class="contact-p1">Email Address:</label>
+                            <input type="email" class="form-control" name="email" id="email" required="">
+							<p class="help-block"></p>
+
+                    </div>
+
+
+                    <input type="submit" name="sub" value="Send Now" class="btn btn-primary">
+				</form>
+							</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 contact-w3-agile1" data-aos="flip-right">
+			<h4>Connect With Us</h4>
+			<p class="contact-agile1"><strong>Phone :</strong>+90 5338318223</p>
+			<p class="contact-agile1"><strong>Email :</strong> <a href="mailto:utku.helvaci.tux@gmail.com">utku.helvaci.tux@gmail.com</a></p>
+			<p class="contact-agile1"><strong>Address :</strong> North Cyprus, Magusa, EMU.</p>
+			<div class="social-bnr-agileits footer-icons-agileinfo">
+				<ul class="social-icons3">
+								<li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
+								<li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
+								<li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li>
+							</ul>
+			</div>
+			<div class="col-md-12" style="width: 100%; margin-top: 20px ;">
+				<form enctype="text/plain" method="post" name="sentMessage" id="contactForm">
+					<div class="control-group form-group">
+
+                        <label class="contact-p1"><p>Name:</p></label>
+                        <input type="text" placeholder="Enter your Name" class="form-control" name="name" id="name" required="">
+                        <p class="help-block"></p>
+
+                  </div>
+                  <div class="control-group form-group">
+
+                        <label class="contact-p1"><p>Email:</p></label>
+                        <input type="email" placeholder="Enter a valid email address" class="form-control" name="email" id="email" required="">
+						<p class="help-block"></p>
+
+                  </div>
+                  <div class="control-group form-group">
+
+                        <label class="contact-p1"><p>How can we help?</p></label>
+                        <textarea type="tel" class="form-control" name="phone" id="phone" required=""></textarea>
+						<p class="help-block"></p>
+
+                  </div>
+
+                  <input type="button" onclick="sendEmail()" name="sub" value="Send Now" class="btn btn-primary">
                     <!-- <a type="button" name="sub" class="btn btn-primary" id="cus_email_send">Send Now</a> -->
 				</form>
 			</div>
@@ -690,13 +599,13 @@ include('db.php');
             From: document.getElementById('email').value,
             Subject: "From" + document.getElementById('name').value ,
             Body: document.getElementById('phone').value
-        }).then( 
+        }).then(
             message => alert("mail sent successfully")
         );
     }
 </script>
 
-<!-- /contact form -->	
+<!-- /contact form -->
 <!-- Calendar -->
 		<script src="js/jquery-ui.js"></script>
 		<script>
@@ -707,7 +616,7 @@ include('db.php');
 <!-- //Calendar -->
 <!-- gallery popup -->
 <link rel="stylesheet" href="css/swipebox.css">
-				<script src="js/jquery.swipebox.min.js"></script> 
+				<script src="js/jquery.swipebox.min.js"></script>
 					<script type="text/javascript">
 						jQuery(function($) {
 							$(".swipebox").swipebox();
@@ -719,7 +628,7 @@ include('db.php');
 <script type="text/javascript" src="js/easing.js"></script>
 <script type="text/javascript">
 	// jQuery(document).ready(function($) {
-	// 	$(".scroll").click(function(event){		
+	// 	$(".scroll").click(function(event){
 	// 		event.preventDefault();
 	// 		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 	// 	});
@@ -727,7 +636,7 @@ include('db.php');
 </script>
 <!-- start-smoth-scrolling -->
 <!-- flexSlider -->
-				<script defer src="js/jquery.flexslider.js"></script>
+				<script defer="" src="js/jquery.flexslider.js"></script>
 				<script type="text/javascript">
 				$(window).load(function(){
 				  $('.flexslider').flexslider({
@@ -757,18 +666,18 @@ include('db.php');
 							  $('.events').append("<li>after event fired.</li>");
 							}
 						  });
-					
+
 						});
 			</script>
 		<!--search-bar-->
-		<script src="js/main.js"></script>	
+		<script src="js/main.js"></script>
 <!--//search-bar-->
 <!--tabs-->
 <script src="js/easy-responsive-tabs.js"></script>
 <script>
 $(document).ready(function () {
 $('#horizontalTab').easyResponsiveTabs({
-type: 'default', //Types: default, vertical, accordion           
+type: 'default', //Types: default, vertical, accordion
 width: 'auto', //auto or any width like 600px
 fit: true,   // 100% fit in a container
 closed: 'accordion', // Start closed if in accordion view
@@ -791,23 +700,28 @@ fit: true
 <!-- smooth scrolling -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-		
+
 			var defaults = {
 			containerID: 'toTop', // fading element id
 			containerHoverID: 'toTopHover', // fading element hover id
 			scrollSpeed: 1200,
-			easingType: 'linear' 
+			easingType: 'linear'
 			};
-										
+
 		$().UItoTop({ easingType: 'easeOutQuart' });
 		});
 	</script>
-	
+
 	<div class="arr-w3ls">
-	<a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	<a href="#home" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 0;"></span> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	</div>
 <!-- //smooth scrolling -->
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+
+
+
+
+<a href="#" id="toTop">To Top</a>
 </body>
 </html>
 

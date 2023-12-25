@@ -155,9 +155,7 @@ include('db.php');
 </section>
 <!-- //gallery -->
 <!-- /contact -->
-			<div class="copy">
-		        <p>© 2023 Reser<span>vation . All Rights Reserved | Design by <a href="index.php">Elmo, Utku<span> and Hamdalla</a> </p>
-		    </div>
+
 <!--/footer -->
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>

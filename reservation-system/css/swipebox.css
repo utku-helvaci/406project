@@ -3,6 +3,16 @@ html.swipebox-html.swipebox-touch {
   overflow: hidden !important;
 }
 
+.centerbgimg {
+  z-index: -1;
+  margin-left: -4%;
+  margin-top: -1%;
+  position: absolute;
+  width: 7%;
+  height: 107%;
+}
+
+
 #swipebox-overlay img {
   border: none !important;
 }

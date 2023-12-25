@@ -4,12 +4,34 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
-html, body{
-	margin:0;
-	font-size: 100%;
-	font-family: 'Lato', sans-serif;
-	background: #fff;
+html,
+
+
+
+
+
+
+
+
+
+
+body {
+   background:
+  repeating-linear-gradient(
+    to right, transparent,
+    transparent 50px,
+    white 50px,
+    white 55px
+  ),
+  repeating-linear-gradient(
+    to bottom, transparent,
+    transparent 50px,
+    white 50px,
+    white 55px
+  ),
+  linear-gradient(45deg, pink, skyblue);
 }
+
 body a {
 	text-decoration:none;
 	transition:0.5s all;
@@ -216,11 +238,14 @@ label.icon-search span {
 /*--//search--*/
 /*-- nav --*/
 .w3_navigation {
-    background: #111111 ;
+    background: #333131 ;
+
+
 }
 .navbar-default {
     background: none;
     border: none;
+	z-index: 1;
 }
 .navbar {
     margin-bottom: 0;
@@ -255,6 +280,13 @@ nav.navbar.navbar-default {
     background: none;
     padding: .9em 0 .4em 0;
 }
+
+nav.navbar.navbar-z {
+    background: none;
+    padding: .9em 0 .4em 0;
+	z-index: -1;
+}
+
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
     color:#fff;
     background: none;
@@ -1314,7 +1346,7 @@ ul.resp-tabs-list {
 /*--//rooms & rates --*/
   /*-- visitors --*/
   .w3l-visitors-agile {
-    background: rgba(15, 36, 83, 0.07);
+    background: rgba(251, 251, 251, 0.91);
 }
 .title-agileits1 {
     text-align: center;
@@ -1432,6 +1464,7 @@ h3.w3l-agile:before,h2.w3l-agile:before  {
 .gallery1 {
 position:relative;
 padding: 5px ;
+background: #fff;
 }
 .gallery1 .textbox {
     width: 100%;

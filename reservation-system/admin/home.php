@@ -95,7 +95,7 @@ session_start();
         </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
-            <div id="page-inner">
+            <div id="page-inner" >
 
 
                 <div class="row">

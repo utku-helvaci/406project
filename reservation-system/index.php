@@ -33,28 +33,16 @@ if(isset($_COOKIE["user"]))
 
 <body>
     <!--  carousel -->
-    <section id="carouselExampleControls" class="carousel slide carousel_section" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="carousel-image" src="images/hotel1.jpg">
-            </div>
-            <div class="carousel-item">
-                <img class="carousel-image" src="images/hotel2.jpg">
-            </div>
-            <div class="carousel-item">
-                <img class="carousel-image" src="images/hotel3.jpg">
-            </div>
-            <div class="carousel-item">
-                <img class="carousel-image" src="images/hotel4.jpg">
-            </div>
-        </div>
-    </section>
+
 
     <!-- main section -->
+
+    <div class="middler">
+
     <section id="auth_section">
 
         <div class="logo">
-            <img class="bluebirdlogo" src="images/bluebirdlogo.png" alt="logo">
+            <img class="bluebirdlogo" src="images/-191.png" alt="logo">
             <p>Reservation System</p>
         </div>
 
